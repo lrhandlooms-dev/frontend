@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Account | LR Handlooms</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Website CSS -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <!-- Account CSS -->
+    <link
+        rel="stylesheet"
+        href="./account.css"
+    >
+
+    <!-- Main Website JS -->
+    <script
+        src="./script.js"
+        defer
+    ></script>
+
+    <!-- Account JS -->
+    <script
+        src="./account.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ANNOUNCEMENT
+    ====================================================== -->
+
+    <div class="announcement-bar">
+
+        <span>
+            COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-left">
+
+            <a
+                href="./index.html"
+                class="brand-logo-wrap"
+            >
+
+                <div class="brand-logo">
+                    LR HANDLOOMS
+                </div>
+
+                <span class="brand-subtext">
+                    MADE IN MANIABANDHA
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="nav-center">
+
+            <div class="nav-item">
+
+                <a href="./collections.html">
+                    COLLECTIONS
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/weaves.html">
+                    WEAVES
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/about.html">
+                    OUR HERITAGE
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/atelier.html">
+                    BESPOKE ATELIER
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="./account.html"
+                class="account-nav-link"
+            >
+                ACCOUNT
+            </a>
+
+
+            <button
+                class="nav-cta-btn"
+                id="cart-btn"
+            >
+                BAG (
+                <span id="cart-count">
+                    0
+                </span>
+                )
+            </button>
+
+
+            <button
+                class="search-icon-btn"
+                id="search-btn"
+                aria-label="Search"
+            >
+
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="8"
+                    ></circle>
+
+                    <line
+                        x1="21"
+                        y1="21"
+                        x2="16.65"
+                        y2="16.65"
+                    ></line>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         ACCOUNT PAGE
+    ====================================================== -->
+
+    <main class="account-page">
+
+
+        <!-- =================================================
+             ACCOUNT HERO
+        ================================================== -->
+
+        <section class="account-hero">
+
+            <div class="account-hero-inner">
+
+                <span class="account-eyebrow">
+                    THE LR HANDLOOMS EXPERIENCE
+                </span>
+
+                <h1>
+                    Your Account
+                </h1>
+
+                <p>
+                    Manage your orders, saved addresses and
+                    personal details in one place.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AUTH SECTION
+        ================================================== -->
+
+        <section class="account-auth-section">
+
+            <div class="account-auth-card">
+
+
+                <!-- =========================================
+                     LOGIN
+                ========================================== -->
+
+                <div
+                    class="auth-panel login-panel active"
+                    id="login-panel"
+                >
+
+                    <div class="auth-heading">
+
+                        <span>
+                            WELCOME BACK
+                        </span>
+
+                        <h2>
+                            Sign In
+                        </h2>
+
+                        <p>
+                            Enter your details to access your
+                            LR Handlooms account.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        id="login-form"
+                        class="auth-form"
+                    >
+
+
+                        <div class="form-group">
+
+                            <label for="login-email">
+                                EMAIL ADDRESS
+                            </label>
+
+                            <input
+                                type="email"
+                                id="login-email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="login-password">
+                                PASSWORD
+                            </label>
+
+                            <input
+                                type="password"
+                                id="login-password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="auth-submit-btn"
+                            id="login-submit"
+                        >
+
+                            SIGN IN
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <p
+                            class="auth-message"
+                            id="login-message"
+                        ></p>
+
+                    </form>
+
+
+                    <div class="auth-switch">
+
+                        <span>
+                            Don't have an account?
+                        </span>
+
+                        <button
+                            type="button"
+                            id="show-register"
+                        >
+                            CREATE ACCOUNT
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     REGISTER
+                ========================================== -->
+
+                <div
+                    class="auth-panel register-panel"
+                    id="register-panel"
+                >
+
+                    <div class="auth-heading">
+
+                        <span>
+                            JOIN THE HOUSE
+                        </span>
+
+                        <h2>
+                            Create Account
+                        </h2>
+
+                        <p>
+                            Create your personal LR Handlooms
+                            account and keep track of your orders.
+                        </p>
+
+                    </div>
+
+
+                    <form
+                        id="register-form"
+                        class="auth-form"
+                    >
+
+
+                        <div class="form-group">
+
+                            <label for="register-name">
+                                FULL NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="register-name"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="register-email">
+                                EMAIL ADDRESS
+                            </label>
+
+                            <input
+                                type="email"
+                                id="register-email"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="register-phone">
+                                PHONE NUMBER
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="register-phone"
+                                name="phone"
+                                placeholder="+91 XXXXX XXXXX"
+                                autocomplete="tel"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="register-password">
+                                PASSWORD
+                            </label>
+
+                            <input
+                                type="password"
+                                id="register-password"
+                                name="password"
+                                placeholder="Minimum 6 characters"
+                                autocomplete="new-password"
+                                minlength="6"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="auth-submit-btn"
+                            id="register-submit"
+                        >
+
+                            CREATE ACCOUNT
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+                        <p
+                            class="auth-message"
+                            id="register-message"
+                        ></p>
+
+                    </form>
+
+
+                    <div class="auth-switch">
+
+                        <span>
+                            Already have an account?
+                        </span>
+
+                        <button
+                            type="button"
+                            id="show-login"
+                        >
+                            SIGN IN
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACCOUNT FEATURES
+        ================================================== -->
+
+        <section class="account-features">
+
+            <div class="account-feature">
+
+                <span class="feature-number">
+                    01
+                </span>
+
+                <h3>
+                    YOUR ORDERS
+                </h3>
+
+                <p>
+                    Keep track of every LR Handlooms purchase
+                    from one elegant account.
+                </p>
+
+            </div>
+
+
+            <div class="account-feature">
+
+                <span class="feature-number">
+                    02
+                </span>
+
+                <h3>
+                    SAVED ADDRESSES
+                </h3>
+
+                <p>
+                    Save your delivery details for a faster
+                    checkout experience.
+                </p>
+
+            </div>
+
+
+            <div class="account-feature">
+
+                <span class="feature-number">
+                    03
+                </span>
+
+                <h3>
+                    PRIVATE ACCESS
+                </h3>
+
+                <p>
+                    Stay connected with new collections,
+                    rare weaves and seasonal releases.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-col brand-col">
+
+                <div class="footer-logo-wrap">
+
+                    <img
+                        src="./logo.jpg"
+                        alt="LR Handlooms"
+                        class="footer-logo-img"
+                    >
+
+                    <div class="footer-brand-meta">
+
+                        <span class="brand-title">
+                            LR HANDLOOMS
+                        </span>
+
+                        <span class="brand-tagline">
+                            MADE IN MANIABANDHA
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="brand-desc">
+                    Redefining Indian heritage weaving &
+                    authentic Maniabandha textiles for the
+                    global connoisseur.
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    CLIENT CARE
+                </h4>
+
+                <a href="#">
+                    Worldwide Shipping
+                </a>
+
+                <a href="#">
+                    Care Instructions
+                </a>
+
+                <a href="#">
+                    Private Appointments
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    THE HOUSE
+                </h4>
+
+                <a href="./shop_pages/about.html">
+                    Our Heritage
+                </a>
+
+                <a href="./collections.html">
+                    Collections
+                </a>
+
+                <a href="./shop_pages/atelier.html">
+                    Bespoke Atelier
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    NEWSLETTER
+                </h4>
+
+                <p class="newsletter-sub">
+                    Subscribe for private preview access
+                    to seasonal edits & rare weave drops.
+                </p>
+
+
+                <form
+                    class="newsletter-box"
+                    onsubmit="event.preventDefault();"
+                >
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        aria-label="Subscribe"
+                    >
+                        →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.
+            </p>
+
+            <div class="footer-legal">
+
+                <a href="#">
+                    PRIVACY POLICY
+                </a>
+
+                <a href="#">
+                    TERMS & CONDITIONS
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

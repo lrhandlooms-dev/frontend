@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Checkout — LR Handlooms</title>
+
+  <link
+    rel="stylesheet"
+    href="checkout.css"
+  >
+
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="checkout-header">
+
+    <a
+      href="./index.html"
+      class="brand"
+    >
+      <span>LR HANDLOOMS</span>
+      <small>MADE IN MANIABANDHA</small>
+    </a>
+
+
+    <div class="secure-checkout">
+      SECURE CHECKOUT
+    </div>
+
+  </header>
+
+
+
+  <!-- MAIN -->
+
+  <main class="checkout-page">
+
+    <div class="checkout-container">
+
+
+      <!-- LEFT -->
+
+      <section class="checkout-left">
+
+        <div class="section-heading">
+
+          <span>01</span>
+
+          <div>
+            <p>DELIVERY DETAILS</p>
+            <h1>Where shall we deliver?</h1>
+          </div>
+
+        </div>
+
+
+        <form id="checkout-form">
+
+
+          <!-- CONTACT -->
+
+          <div class="form-section">
+
+            <h2>Contact information</h2>
+
+            <div class="form-grid">
+
+              <div class="field full">
+
+                <label for="fullName">
+                  FULL NAME
+                </label>
+
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="email">
+                  EMAIL ADDRESS
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="phone">
+                  PHONE NUMBER
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- ADDRESS -->
+
+          <div class="form-section">
+
+            <h2>Shipping address</h2>
+
+            <div class="form-grid">
+
+              <div class="field full">
+
+                <label for="address">
+                  ADDRESS
+                </label>
+
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="3"
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="city">
+                  CITY
+                </label>
+
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="state">
+                  STATE
+                </label>
+
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="pincode">
+                  PINCODE
+                </label>
+
+                <input
+                  type="text"
+                  id="pincode"
+                  name="pincode"
+                  inputmode="numeric"
+                  maxlength="6"
+                  required
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <label for="country">
+                  COUNTRY
+                </label>
+
+                <input
+                  type="text"
+                  id="country"
+                  name="country"
+                  value="India"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="checkout-message"
+            id="checkout-message"
+          ></div>
+
+
+          <button
+            type="submit"
+            class="continue-btn"
+          >
+            CONTINUE TO PAYMENT
+            <span>→</span>
+          </button>
+
+        </form>
+
+      </section>
+
+
+
+      <!-- RIGHT -->
+
+      <aside class="order-summary">
+
+        <div class="summary-heading">
+
+          <span>02</span>
+
+          <div>
+            <p>YOUR ORDER</p>
+            <h2>Order summary</h2>
+          </div>
+
+        </div>
+
+
+        <div
+          id="checkout-items"
+          class="checkout-items"
+        ></div>
+
+
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <strong id="checkout-subtotal">
+            ₹0
+          </strong>
+        </div>
+
+
+        <div class="summary-line">
+          <span>Shipping</span>
+          <span>Calculated at payment</span>
+        </div>
+
+
+        <div class="summary-total">
+
+          <span>TOTAL</span>
+
+          <strong id="checkout-total">
+            ₹0
+          </strong>
+
+        </div>
+
+
+        <p class="summary-note">
+          Your order will be secured and processed
+          after payment confirmation.
+        </p>
+
+      </aside>
+
+
+    </div>
+
+  </main>
+
+
+
+  <script src="checkout.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | LR HANDLOOMS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/IMG_0673.jpg">
+    <!-- Outer CSS & JS -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        <span>COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY</span>
+    </div>
+
+    <!-- 2. Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="../index.html" class="brand-logo-wrap">
+                <div class="brand-logo">LR HANDLOOMS</div>
+                <span class="brand-subtext">MADE IN MANIABANDHA</span>
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <!-- Same folder link -->
+            <div class="nav-item"><a href="shop.html" style="color: var(--accent-gold);">COLLECTIONS</a></div>
+            <!-- Outer folder links (Fixed) -->
+            <div class="nav-item"><a href="../shop_pages/weaves.html">WEAVES</a></div>
+            <div class="nav-item"><a href="../shop_pages/about.html">OUR HERITAGE</a></div>
+            <div class="nav-item"><a href="../shop_pages/atelier.html">BESPOKE ATELIER</a></div>
+        </div>
+
+        <div class="nav-right">
+            <button class="nav-cta-btn" id="cart-btn">BAG (<span id="cart-count">0</span>)</button>
+
+            <button class="search-icon-btn" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 3. Page Header Section -->
+    <section style="padding: 70px 20px 40px; text-align: center; background-color: var(--bg-card); border-bottom: 1px solid rgba(158, 126, 86, 0.25);">
+        <p style="font-size: 0.65rem; letter-spacing: 4px; color: var(--accent-gold); font-weight: 600; margin-bottom: 10px;">ROYAL HERITAGE WEAVES</p>
+        <h1 style="font-family: var(--font-serif); font-size: 3.5rem; font-weight: 500; color: var(--text-main); margin: 0;">The Heritage Collection</h1>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; letter-spacing: 0.5px;">Masterpieces handcrafted on pit looms by artisan families</p>
+    </section>
+
+    <!-- 4. Interactive Filters Bar -->
+    <section class="filter-container">
+        <div class="filter-group">
+            <button class="filter-chip active" onclick="filterWeave('all', this)">ALL WEAVES</button>
+            <button class="filter-chip" onclick="filterWeave('maniabandha', this)">MANIABANDHA IKAT</button>
+            <button class="filter-chip" onclick="filterWeave('kanjeevaram', this)">KANJEEVARAM</button>
+            <button class="filter-chip" onclick="filterWeave('banarasi', this)">BANARASI</button>
+            <button class="filter-chip" onclick="filterWeave('organza', this)">ORGANZA</button>
+        </div>
+        <div class="catalog-counter" id="catalog-count">
+            SHOWING 6 HANDLOOM CREATIONS
+        </div>
+    </section>
+
+    <!-- 5. Product Catalog Grid -->
+    <section class="collections" style="padding: 60px;">
+        <div class="product-grid" id="catalog-grid">
+
+            <!-- Card 1 -->
+            <div class="product-card" data-category="kanjeevaram">
+                <div class="img-wrapper" onclick="openProduct('Crimson Kanjeevaram Zari Silk', 125000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop', 'Kanjeevaram')">
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop" alt="Crimson Kanjeevaram" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Crimson Kanjeevaram Zari Silk', 125000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Crimson Kanjeevaram Zari Silk', 125000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop', 'Kanjeevaram')" style="cursor: pointer;">Crimson Kanjeevaram Zari Silk</h3>
+                    <p class="price">₹1,25,000</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="product-card" data-category="banarasi">
+                <div class="img-wrapper" onclick="openProduct('Emerald Gold Kadwa Banarasi', 98500, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop', 'Banarasi')">
+                    <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop" alt="Emerald Banarasi" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Emerald Gold Kadwa Banarasi', 98500, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Emerald Gold Kadwa Banarasi', 98500, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop', 'Banarasi')" style="cursor: pointer;">Emerald Gold Kadwa Banarasi</h3>
+                    <p class="price">₹98,500</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="product-card" data-category="organza">
+                <div class="img-wrapper" onclick="openProduct('Ivory Royal Tissue Organza', 74000, 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1000&auto=format&fit=crop', 'Organza')">
+                    <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1000&auto=format&fit=crop" alt="Ivory Organza" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Ivory Royal Tissue Organza', 74000, 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Ivory Royal Tissue Organza', 74000, 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1000&auto=format&fit=crop', 'Organza')" style="cursor: pointer;">Ivory Royal Tissue Organza</h3>
+                    <p class="price">₹74,000</p>
+                </div>
+            </div>
+
+            <!-- Card 4 (Maniabandha Specialty) -->
+            <div class="product-card" data-category="maniabandha">
+                <div class="img-wrapper" onclick="openProduct('Maniabandha Royal Khandua Silk', 85000, 'https://images.unsplash.com/photo-1606760227091-3dd850d492a7?q=80&w=1000&auto=format&fit=crop', 'Maniabandha Ikat')">
+                    <img src="https://images.unsplash.com/photo-1606760227091-3dd850d492a7?q=80&w=1000&auto=format&fit=crop" alt="Maniabandha Silk Ikat" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Maniabandha Royal Khandua Silk', 85000, 'https://images.unsplash.com/photo-1606760227091-3dd850d492a7?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Maniabandha Royal Khandua Silk', 85000, 'https://images.unsplash.com/photo-1606760227091-3dd850d492a7?q=80&w=1000&auto=format&fit=crop', 'Maniabandha Ikat')" style="cursor: pointer;">Maniabandha Royal Khandua Silk</h3>
+                    <p class="price">₹85,000</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="product-card" data-category="banarasi">
+                <div class="img-wrapper" onclick="openProduct('Midnight Blue Jangla Banarasi', 110000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop', 'Banarasi')">
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop" alt="Midnight Gold Silk" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Midnight Blue Jangla Banarasi', 110000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Midnight Blue Jangla Banarasi', 110000, 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop', 'Banarasi')" style="cursor: pointer;">Midnight Blue Jangla Banarasi</h3>
+                    <p class="price">₹1,10,000</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="product-card" data-category="maniabandha">
+                <div class="img-wrapper" onclick="openProduct('Heritage Passapalli Tissue Silk', 68000, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop', 'Maniabandha Ikat')">
+                    <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop" alt="Passapalli Cotton Silk" class="product-img">
+                    <button class="quick-add" onclick="event.stopPropagation(); addToCart('Heritage Passapalli Tissue Silk', 68000, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop')">ADD TO BAG</button>
+                </div>
+                <div class="product-info">
+                    <h3 onclick="openProduct('Heritage Passapalli Tissue Silk', 68000, 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop', 'Maniabandha Ikat')" style="cursor: pointer;">Heritage Passapalli Tissue Silk</h3>
+                    <p class="price">₹68,000</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. Slide-Over Shopping Bag Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>YOUR SHOPPING BAG</h3>
+            <span class="close-cart" id="close-cart">&times;</span>
+        </div>
+        <div class="cart-body">
+            <p id="empty-msg">Your shopping bag is currently empty.</p>
+            <div id="cart-items"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <p class="tax-note">Taxes and worldwide insured shipping calculated at checkout.</p>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- 7. Fullscreen Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <button class="close-search-btn" id="close-search" aria-label="Close Search">&times;</button>
+        <div class="search-container">
+            <p class="search-sub-label">SEARCH OUR HERITAGE COLLECTION</p>
+            <div class="search-input-wrap">
+                <input type="text" id="search-input" placeholder="Type Banarasi, Kanjeevaram, Organza..." autocomplete="off">
+            </div>
+            <div class="trending-searches">
+                <span class="trending-title">POPULAR SEARCHES:</span>
+                <div class="search-tags">
+                    <a href="javascript:void(0)" onclick="fillSearch('Bridal Kanjeevaram')">Bridal Kanjeevaram</a>
+                    <a href="javascript:void(0)" onclick="fillSearch('Pure Tissue Organza')">Pure Tissue Organza</a>
+                    <a href="javascript:void(0)" onclick="fillSearch('Kadwa Banarasi')">Kadwa Banarasi</a>
+                    <a href="javascript:void(0)" onclick="fillSearch('Maniabandha Weaves')">Maniabandha Weaves</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Complete Heritage Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-logo-wrap">
+                    <!-- Fixed path for outer logo image -->
+                    <img src="../logo.jpg" alt="LR Handlooms Logo" class="footer-logo-img">
+                    <div class="footer-brand-meta">
+                        <span class="brand-title">LR HANDLOOMS</span>
+                        <span class="brand-tagline">MADE IN MANIABANDHA</span>
+                    </div>
+                </div>
+                <p class="brand-desc">Redefining Indian heritage weaving & authentic Maniabandha textiles for the global connoisseur.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>CLIENT CARE</h4>
+                <a href="../atelier.html">Bespoke Fitting</a>
+                <a href="#">Worldwide Shipping</a>
+                <a href="#">Care Instructions</a>
+                <a href="../atelier.html">Private Appointments</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>THE HOUSE</h4>
+                <a href="../about.html">Our Heritage</a>
+                <a href="../weaves.html">Weavers & Artisans</a>
+                <a href="../about.html">Sustainability</a>
+                <a href="#">Press & Editorial</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>NEWSLETTER</h4>
+                <p class="newsletter-sub">Subscribe for private preview access to seasonal edits & rare weave drops.</p>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" aria-label="Subscribe">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+                            <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.</p>
+            <div class="footer-legal">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS & CONDITIONS</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. Inline Scripts -->
+    <script>
+        function filterWeave(category, btnElement) {
+            const cards = document.querySelectorAll('.product-card');
+            const chips = document.querySelectorAll('.filter-chip');
+            let visibleCount = 0;
+
+            chips.forEach(chip => chip.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('catalog-count').innerText = `SHOWING ${visibleCount} HANDLOOM CREATIONS`;
+        }
+
+        function openProduct(name, price, img, category) {
+            const query = `?name=${encodeURIComponent(name)}&price=${price}&img=${encodeURIComponent(img)}&category=${encodeURIComponent(category)}`;
+            window.location.href = `product-detail.html${query}`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,864 @@
+/* ============================================================
+   LR HANDLOOMS — PRODUCT DETAIL
+   ============================================================ */
+
+.product-page {
+    width: min(1380px, 100%);
+    margin: 0 auto;
+    padding: 90px 60px 0;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.product-loading {
+    min-height: 55vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+
+    color: #777;
+}
+
+
+.product-error {
+    min-height: 55vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    text-align: center;
+}
+
+
+.product-error p {
+    margin: 0;
+
+    font-size: 11px;
+    letter-spacing: 0.2em;
+}
+
+
+.product-error a {
+    color: inherit;
+    text-decoration: none;
+
+    font-size: 9px;
+    letter-spacing: 0.2em;
+
+    border-bottom: 1px solid currentColor;
+
+    padding-bottom: 7px;
+}
+
+
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+
+.product-detail {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(380px, 0.9fr);
+
+    gap: clamp(45px, 7vw, 110px);
+
+    align-items: start;
+}
+
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+
+.product-gallery {
+    display: grid;
+
+    grid-template-columns: 86px minmax(0, 1fr);
+
+    gap: 18px;
+
+    position: sticky;
+    top: 110px;
+}
+
+
+.product-main-image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f3f1ed;
+}
+
+
+.product-main-image img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 0.78;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
+
+
+.product-main-image:hover img {
+    transform: scale(1.025);
+}
+
+
+.product-image-badge {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    padding: 9px 12px;
+
+    background: rgba(255,255,255,0.9);
+
+    font-size: 8px;
+    letter-spacing: 0.18em;
+}
+
+
+.product-thumbnails {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 650px;
+
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+
+.product-thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+
+.product-thumbnail {
+    appearance: none;
+
+    border: 1px solid transparent;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    opacity: 0.55;
+
+    transition:
+        opacity 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+    opacity: 1;
+
+    border-color: #111;
+}
+
+
+.product-thumbnail img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 0.78;
+
+    object-fit: cover;
+}
+
+
+/* ============================================================
+   INFORMATION
+   ============================================================ */
+
+.product-information {
+    padding-top: 10px;
+
+    max-width: 560px;
+}
+
+
+.product-category {
+    margin-bottom: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 0.25em;
+
+    color: #a0834d;
+
+    font-weight: 600;
+}
+
+
+.product-information h1 {
+    margin: 0;
+
+    max-width: 550px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    line-height: 0.98;
+
+    font-weight: 400;
+
+    letter-spacing: -0.02em;
+
+    color: #151515;
+}
+
+
+/* ============================================================
+   PRICE
+   ============================================================ */
+
+.product-pricing {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.product-final-price {
+    font-size: 18px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.03em;
+}
+
+
+.product-original-price {
+    font-size: 13px;
+
+    color: #999;
+
+    text-decoration: line-through;
+}
+
+
+.product-discount {
+    padding: 5px 8px;
+
+    background: #151515;
+
+    color: #fff;
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* ============================================================
+   STOCK
+   ============================================================ */
+
+.product-stock {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.17em;
+
+    color: #4c7050;
+}
+
+
+.stock-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #4c7050;
+}
+
+
+.product-stock.out-of-stock {
+    color: #9b4747;
+}
+
+
+.product-stock.out-of-stock .stock-dot {
+    background: #9b4747;
+}
+
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.product-divider {
+    height: 1px;
+
+    width: 100%;
+
+    margin: 30px 0;
+
+    background: rgba(0,0,0,0.1);
+}
+
+
+/* ============================================================
+   DESCRIPTION
+   ============================================================ */
+
+.product-description p {
+    margin: 0;
+
+    max-width: 520px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* ============================================================
+   SPECIFICATIONS
+   ============================================================ */
+
+.product-specifications {
+    margin-top: 30px;
+
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.spec-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.spec-row span {
+    color: #888;
+}
+
+
+.spec-row strong {
+    text-align: right;
+
+    font-weight: 500;
+
+    color: #222;
+}
+
+
+/* ============================================================
+   QUANTITY
+   ============================================================ */
+
+.quantity-section {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 28px;
+}
+
+
+.quantity-label {
+    font-size: 8px;
+
+    letter-spacing: 0.18em;
+
+    color: #777;
+}
+
+
+.quantity-control {
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid rgba(0,0,0,0.18);
+}
+
+
+.quantity-control button {
+    width: 42px;
+    height: 38px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition:
+        background 0.25s ease;
+}
+
+
+.quantity-control button:hover {
+    background: #f2f0ec;
+}
+
+
+.quantity-control span {
+    width: 40px;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+
+.product-actions {
+    display: grid;
+
+    grid-template-columns: 1.6fr 0.7fr;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.product-add-button,
+.product-inquire-button {
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #171717;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.product-add-button {
+    background: #171717;
+
+    color: #fff;
+}
+
+
+.product-add-button:hover:not(:disabled) {
+    background: #302f2c;
+
+    transform: translateY(-2px);
+}
+
+
+.product-add-button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+.product-inquire-button {
+    background: transparent;
+
+    color: #171717;
+}
+
+
+.product-inquire-button:hover {
+    background: #171717;
+
+    color: #fff;
+}
+
+
+/* ============================================================
+   PROMISES
+   ============================================================ */
+
+.product-promises {
+    margin-top: 32px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.product-promises div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 9px 0;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+    color: #555;
+}
+
+
+.product-promises span {
+    color: #a0834d;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+}
+
+
+/* ============================================================
+   THE MAKING
+   ============================================================ */
+
+.making-section {
+    margin-top: 150px;
+
+    padding-top: 100px;
+
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.making-heading {
+    max-width: 620px;
+
+    margin-bottom: 65px;
+}
+
+
+.making-heading > span {
+    font-size: 8px;
+
+    letter-spacing: 0.25em;
+
+    color: #a0834d;
+
+    font-weight: 600;
+}
+
+
+.making-heading h2 {
+    margin: 15px 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(48px, 6vw, 80px);
+
+    line-height: 0.95;
+
+    font-weight: 400;
+}
+
+
+.making-heading p {
+    max-width: 500px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+.making-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 35px;
+}
+
+
+.making-card {
+    min-width: 0;
+}
+
+
+.making-image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #efede8;
+}
+
+
+.making-image img,
+.making-image-placeholder {
+    width: 100%;
+
+    aspect-ratio: 0.8;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.making-image-placeholder {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 60px;
+
+    color: #aaa;
+}
+
+
+.making-number {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    padding: 7px 9px;
+
+    background: rgba(255,255,255,0.88);
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+}
+
+
+.making-content {
+    padding-top: 20px;
+}
+
+
+.making-content h3 {
+    margin: 0 0 10px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+}
+
+
+.making-content p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .product-page {
+        padding:
+            55px
+            20px
+            0;
+    }
+
+
+    .product-detail {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .product-gallery {
+        position: static;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .product-thumbnails {
+        order: 2;
+
+        flex-direction: row;
+
+        max-height: none;
+
+        overflow-x: auto;
+
+        overflow-y: hidden;
+    }
+
+
+    .product-thumbnail {
+        flex: 0 0 68px;
+    }
+
+
+    .product-main-image {
+        order: 1;
+    }
+
+
+    .product-main-image img {
+        aspect-ratio: 0.82;
+    }
+
+
+    .product-information {
+        padding-top: 0;
+
+        max-width: none;
+    }
+
+
+    .product-information h1 {
+        font-size: 48px;
+    }
+
+
+    .making-section {
+        margin-top: 90px;
+
+        padding-top: 65px;
+    }
+
+
+    .making-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .product-page {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .product-information h1 {
+        font-size: 42px;
+    }
+
+
+    .product-actions {
+        grid-template-columns: 1fr;
+    }
+
+
+    .product-inquire-button {
+        min-height: 52px;
+    }
+
+
+    .spec-row {
+        font-size: 8px;
+    }
+
+}

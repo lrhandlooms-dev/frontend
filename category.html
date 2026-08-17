@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Collection — LR Handlooms</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           CATEGORY PAGE
+        ===================================================== */
+
+        .category-page {
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+
+
+        /* HERO */
+
+        .category-hero {
+            min-height: 58vh;
+
+            display: flex;
+            align-items: flex-end;
+
+            position: relative;
+
+            padding: 80px 6vw;
+
+            overflow: hidden;
+        }
+
+
+        .category-hero-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: 0;
+        }
+
+
+        .category-hero::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,.78),
+                    rgba(0,0,0,.08)
+                );
+
+            z-index: 1;
+        }
+
+
+        .category-hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+            color: #fff;
+        }
+
+
+        .category-number {
+            display: block;
+
+            margin-bottom: 16px;
+
+            color: rgba(255,255,255,.65);
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .category-hero h1 {
+            margin: 0 0 18px;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(
+                3rem,
+                7vw,
+                7rem
+            );
+
+            font-weight: 400;
+
+            line-height: .95;
+        }
+
+
+        .category-hero p {
+            max-width: 650px;
+
+            margin: 0;
+
+            color: rgba(255,255,255,.78);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* PRODUCTS */
+
+        .category-products {
+            padding: 100px 6vw 120px;
+        }
+
+
+        .category-products-head {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-end;
+
+            gap: 30px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .category-products-head .eyebrow {
+            margin-bottom: 10px;
+
+            color: var(--accent-color);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .category-products-head h2 {
+            margin: 0;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(
+                2rem,
+                4vw,
+                3.5rem
+            );
+
+            font-weight: 400;
+        }
+
+
+        .category-count {
+            color: rgba(30,27,24,.55);
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* PRODUCT GRID */
+
+        #categoryProductGrid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 45px 25px;
+        }
+
+
+        #categoryProductGrid .product-card {
+            min-width: 0;
+        }
+
+
+        /* LOADING */
+
+        .category-loading {
+            grid-column: 1 / -1;
+
+            padding: 100px 20px;
+
+            text-align: center;
+
+            color: rgba(30,27,24,.55);
+
+            letter-spacing: 2px;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* EMPTY */
+
+        .category-empty {
+            grid-column: 1 / -1;
+
+            padding: 120px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid
+                rgba(30,27,24,.12);
+
+            border-bottom: 1px solid
+                rgba(30,27,24,.12);
+        }
+
+
+        .category-empty h3 {
+            margin: 0 0 12px;
+
+            font-family: Georgia, serif;
+
+            font-size: 2rem;
+
+            font-weight: 400;
+        }
+
+
+        .category-empty p {
+            margin: 0;
+
+            color: rgba(30,27,24,.55);
+        }
+
+
+        /* BACK */
+
+        .back-collections {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 55px;
+
+            color: inherit;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            border-bottom: 1px solid currentColor;
+
+            padding-bottom: 8px;
+
+            transition: gap .3s ease;
+        }
+
+
+        .back-collections:hover {
+            gap: 18px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            #categoryProductGrid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+                gap: 30px 16px;
+            }
+
+            .category-hero {
+                min-height: 60vh;
+
+                padding: 60px 25px;
+            }
+
+            .category-products {
+                padding:
+                    70px 20px 90px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            #categoryProductGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-products-head {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .category-hero {
+                min-height: 65vh;
+            }
+
+            .category-hero h1 {
+                font-size: 3.2rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="category-page">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================= -->
+
+        <nav class="navbar">
+
+            <div class="nav-left">
+
+                <a
+                    href="./index.html"
+                    class="brand-logo-wrap"
+                >
+
+                    <div class="brand-logo">
+                        LR HANDLOOMS
+                    </div>
+
+                    <span class="brand-subtext">
+                        MADE IN MANIABANDHA
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="nav-center">
+
+                <div class="nav-item">
+
+                    <a href="./index.html#collections">
+                        COLLECTIONS
+                    </a>
+
+                </div>
+
+
+                <div class="nav-item">
+
+                    <a href="./shop_pages/weaves.html">
+                        WEAVES
+                    </a>
+
+                </div>
+
+
+                <div class="nav-item">
+
+                    <a href="./shop_pages/about.html">
+                        OUR HERITAGE
+                    </a>
+
+                </div>
+
+
+                <div class="nav-item">
+
+                    <a href="./shop_pages/atelier.html">
+                        BESPOKE ATELIER
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-right">
+
+                <button
+                    class="nav-cta-btn"
+                    id="cart-btn"
+                >
+                    BAG
+                    (
+                    <span id="cart-count">
+                        0
+                    </span>
+                    )
+                </button>
+
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobile-menu-btn"
+                    aria-label="Toggle Navigation"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+
+        <!-- =================================================
+             CATEGORY HERO
+        ================================================= -->
+
+        <section class="category-hero">
+
+            <img
+                id="categoryHeroImage"
+                class="category-hero-image"
+                src=""
+                alt=""
+            >
+
+
+            <div class="category-hero-content">
+
+                <span
+                    class="category-number"
+                    id="categoryNumber"
+                >
+                    COLLECTION
+                </span>
+
+
+                <h1 id="categoryName">
+                    Loading...
+                </h1>
+
+
+                <p id="categoryDescription">
+                    Discover our handwoven collection.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRODUCTS
+        ================================================= -->
+
+        <section class="category-products">
+
+            <div class="category-products-head">
+
+                <div>
+
+                    <div class="eyebrow">
+                        THE COLLECTION
+                    </div>
+
+                    <h2>
+                        Woven for You
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="category-count"
+                    id="categoryCount"
+                >
+                    —
+                </div>
+
+            </div>
+
+
+            <div
+                id="categoryProductGrid"
+                class="product-grid"
+            >
+
+                <div class="category-loading">
+                    Loading collection...
+                </div>
+
+            </div>
+
+
+            <a
+                href="./index.html#categories"
+                class="back-collections"
+            >
+                ← BACK TO COLLECTIONS
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             CART
+        ================================================= -->
+
+        <div
+            class="cart-overlay"
+            id="cart-overlay"
+        ></div>
+
+
+        <div
+            class="cart-drawer"
+            id="cart-drawer"
+        >
+
+            <div class="cart-header">
+
+                <h3>
+                    YOUR SHOPPING BAG
+                </h3>
+
+                <span
+                    class="close-cart"
+                    id="close-cart"
+                >
+                    &times;
+                </span>
+
+            </div>
+
+
+            <div class="cart-body">
+
+                <p id="empty-msg">
+                    Your shopping bag is currently empty.
+                </p>
+
+                <div id="cart-items"></div>
+
+            </div>
+
+
+            <div class="cart-footer">
+
+                <div class="subtotal">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="cart-total">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <p class="tax-note">
+                    Taxes and worldwide insured shipping calculated at checkout.
+                </p>
+
+
+                <button class="checkout-btn">
+                    PROCEED TO CHECKOUT
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EXISTING MAIN JS -->
+    <script src="./script.js"></script>
+
+
+    <!-- CATEGORY PAGE JS -->
+    <script src="./category.js"></script>
+
+</body>
+
+</html>

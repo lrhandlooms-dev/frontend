@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Private Consultation | LR Handlooms
+    </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="consultation.css"
+    >
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        defer
+    ></script>
+
+    <script
+        src="consultation.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     BACKGROUND
+====================================================== -->
+
+<div class="consultation-page-bg"></div>
+
+<div class="consultation-page-overlay"></div>
+
+
+<!-- ======================================================
+     NAVIGATION
+====================================================== -->
+
+<header class="consultation-nav">
+
+    <a
+        href="./index.html"
+        class="consultation-logo"
+    >
+
+        <span class="consultation-logo-main">
+            LR HANDLOOMS
+        </span>
+
+        <span class="consultation-logo-sub">
+            MADE IN MANIABANDHA
+        </span>
+
+    </a>
+
+
+    <a
+        href="./index.html"
+        class="consultation-back"
+    >
+        ← BACK TO HOUSE
+    </a>
+
+</header>
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="consultation-main">
+
+
+    <section class="consultation-intro">
+
+        <span class="eyebrow">
+            ATELIER PRIVÉ
+        </span>
+
+        <h1>
+            A Private<br>
+            Bridal Consultation
+        </h1>
+
+        <div class="intro-line"></div>
+
+        <p>
+            Every celebration deserves something
+            uniquely yours. Tell us about your
+            occasion and our atelier will personally
+            guide you through your bespoke
+            handloom journey.
+        </p>
+
+        <div class="intro-details">
+
+            <span>
+                BESPOKE
+            </span>
+
+            <span>•</span>
+
+            <span>
+                PERSONAL
+            </span>
+
+            <span>•</span>
+
+            <span>
+                HERITAGE
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FORM
+    ================================================== -->
+
+    <section class="consultation-card">
+
+
+        <div class="card-top">
+
+            <span>
+                PRIVATE APPOINTMENT
+            </span>
+
+            <span>
+                LRH / 2026
+            </span>
+
+        </div>
+
+
+        <form
+            id="consultation-form"
+            novalidate
+        >
+
+
+            <!-- NAME -->
+
+            <div class="consultation-field">
+
+                <label for="consultation-name">
+                    FULL NAME
+                </label>
+
+                <input
+                    type="text"
+                    id="consultation-name"
+                    name="name"
+                    placeholder="Your full name"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="consultation-field">
+
+                <label for="consultation-email">
+                    EMAIL ADDRESS
+                </label>
+
+                <input
+                    type="email"
+                    id="consultation-email"
+                    name="email"
+                    placeholder="name@example.com"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="consultation-field">
+
+                <label for="consultation-phone">
+                    WHATSAPP NUMBER
+                </label>
+
+                <input
+                    type="tel"
+                    id="consultation-phone"
+                    name="phone"
+                    placeholder="+91 XXXXX XXXXX"
+                    autocomplete="tel"
+                    required
+                >
+
+            </div>
+
+
+            <!-- OCCASION -->
+
+            <div class="consultation-field">
+
+                <label for="consultation-type">
+                    OCCASION
+                </label>
+
+                <select
+                    id="consultation-type"
+                    name="occasion"
+                    required
+                >
+
+                    <option
+                        value=""
+                        disabled
+                        selected
+                    >
+                        Select your occasion
+                    </option>
+
+                    <option value="bridal">
+                        Bridal Trousseau
+                    </option>
+
+                    <option value="guest">
+                        Wedding Guest / Gala
+                    </option>
+
+                    <option value="collector">
+                        Heritage Weave Collector
+                    </option>
+
+                    <option value="bespoke">
+                        Custom Weave Order
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div class="consultation-field">
+
+                <label for="consultation-date">
+                    EVENT / OCCASION DATE
+                </label>
+
+                <input
+                    type="date"
+                    id="consultation-date"
+                    name="occasionDate"
+                    required
+                >
+
+            </div>
+
+
+            <!-- MESSAGE -->
+
+            <div class="consultation-field consultation-field-large">
+
+                <label for="consultation-message">
+                    TELL US ABOUT YOUR VISION
+                </label>
+
+                <textarea
+                    id="consultation-message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us about your wedding, preferred colours, motifs, saree requirements, customisation or anything else you'd like us to know..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                id="consultation-status"
+                class="consultation-status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                id="consultation-submit"
+                class="consultation-submit"
+            >
+
+                <span>
+                    REQUEST PRIVATE CONSULTATION
+                </span>
+
+                <span class="submit-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <p class="form-note">
+                By submitting this request, you agree
+                to be contacted by LR Handlooms regarding
+                your consultation.
+            </p>
+
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="consultation-footer">
+
+    <span>
+        LR HANDLOOMS
+    </span>
+
+    <span>
+        HERITAGE SILKS & WEAVES
+    </span>
+
+    <span>
+        © 2026
+    </span>
+
+</footer>
+
+
+</body>
+
+</html>

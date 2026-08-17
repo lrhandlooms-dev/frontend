@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weaves | LR HANDLOOMS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        <span>COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY</span>
+    </div>
+
+    <!-- 2. Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="../index.html" class="brand-logo-wrap">
+                <div class="brand-logo">LR HANDLOOMS</div>
+                <span class="brand-subtext">MADE IN MANIABANDHA</span>
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <div class="nav-item"><a href="shop_pages/shop.html">COLLECTIONS</a></div>
+            <div class="nav-item"><a href="weaves.html" style="color: var(--accent-gold, #c5a059);">WEAVES</a></div>
+            <div class="nav-item"><a href="about.html">OUR HERITAGE</a></div>
+            <div class="nav-item"><a href="atelier.html">BESPOKE ATELIER</a></div>
+        </div>
+
+        <div class="nav-right">
+            <button class="nav-cta-btn" id="cart-btn">BAG (<span id="cart-count">0</span>)</button>
+
+            <button class="search-icon-btn" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 3. Weaves Hero -->
+    <header style="padding: 90px 20px 60px; text-align: center; background-color: var(--bg-card, #fcfbf9); border-bottom: 1px solid rgba(158, 126, 86, 0.2);">
+        <p style="font-size: 0.65rem; letter-spacing: 4px; color: var(--accent-gold, #c5a059); font-weight: 600; margin-bottom: 12px;">INDIGENOUS CRAFTMANSHIP</p>
+        <h1 style="font-family: var(--font-serif, serif); font-size: 3.5rem; font-weight: 500; color: var(--text-main, #111); margin: 0;">The Sacred Weaves</h1>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 15px; letter-spacing: 0.5px; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            Explore the legendary textile traditions of Maniabandha—where every single thread is tie-dyed by hand before being synchronized on traditional wooden pit looms.
+        </p>
+    </header>
+
+    <!-- 4. Weaves Showcase Grid -->
+    <section style="padding: 80px 60px; max-width: 1300px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px;">
+            
+            <!-- Weave Card 1 -->
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" alt="Khandua Silk" style="width: 100%; height: 400px; object-fit: cover; border-radius: 4px;">
+                <span style="font-size: 0.65rem; letter-spacing: 3px; color: var(--accent-gold, #c5a059); font-weight: 600;">GI TAGGED HERITAGE</span>
+                <h3 style="font-family: var(--font-serif, serif); font-size: 1.8rem; font-weight: 500; margin: 0;">Khandua Patta Silk</h3>
+                <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">
+                    Historically offered to Lord Jagannath, Khandua silks feature sacred temple motifs (Kumbha), auspicious rudraksha lines, and rich crimson-yellow hues dyed with natural extracts.
+                </p>
+            </div>
+
+            <!-- Weave Card 2 -->
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" alt="Matha Silk" style="width: 100%; height: 400px; object-fit: cover; border-radius: 4px;">
+                <span style="font-size: 0.65rem; letter-spacing: 3px; color: var(--accent-gold, #c5a059); font-weight: 600;">PURE TUSSAR & MULBERRY</span>
+                <h3 style="font-family: var(--font-serif, serif); font-size: 1.8rem; font-weight: 500; margin: 0;">Maniabandha Ikat</h3>
+                <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">
+                    Known locally as 'Bandha', this complex resist-dyeing technique requires mathematical precision where warp and weft yarns are dyed prior to weaving to form intricate geometric patterns.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Shopping Bag Drawer & Footer (Standard) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>YOUR SHOPPING BAG</h3>
+            <button class="close-cart-btn" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body">
+            <p id="empty-msg">Your shopping bag is currently empty.</p>
+            <div id="cart-items"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <p class="tax-note">Taxes and worldwide insured shipping calculated at checkout.</p>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-logo-wrap">
+                    <img src="logo.jpg" alt="LR Handlooms Logo" class="footer-logo-img">
+                    <div class="footer-brand-meta">
+                        <span class="brand-title">LR HANDLOOMS</span>
+                        <span class="brand-tagline">MADE IN MANIABANDHA</span>
+                    </div>
+                </div>
+                <p class="brand-desc">Redefining Indian heritage weaving & authentic Maniabandha textiles for the global connoisseur.</p>
+            </div>
+            <div class="footer-col">
+                <h4>CLIENT CARE</h4>
+                <a href="atelier.html">Bespoke Fitting</a>
+                <a href="#">Worldwide Shipping</a>
+                <a href="#">Care Instructions</a>
+            </div>
+            <div class="footer-col">
+                <h4>THE HOUSE</h4>
+                <a href="about.html">Our Heritage</a>
+                <a href="weaves.html">Weavers & Artisans</a>
+            </div>
+            <div class="footer-col">
+                <h4>NEWSLETTER</h4>
+                <p class="newsletter-sub">Subscribe for private preview access to seasonal edits & rare weave drops.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+</body>
+</html>

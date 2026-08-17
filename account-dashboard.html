@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Account | LR Handlooms</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main Website CSS -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="./account-dashboard.css"
+    >
+
+    <!-- Main Website JS -->
+    <script
+        src="./script.js"
+        defer
+    ></script>
+
+    <!-- Dashboard JS -->
+    <script
+        src="./account-dashboard.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         ANNOUNCEMENT BAR
+    ====================================================== -->
+
+    <div class="announcement-bar">
+
+        <span>
+            COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-left">
+
+            <a
+                href="./index.html"
+                class="brand-logo-wrap"
+            >
+
+                <div class="brand-logo">
+                    LR HANDLOOMS
+                </div>
+
+                <span class="brand-subtext">
+                    MADE IN MANIABANDHA
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="nav-center">
+
+            <div class="nav-item">
+                <a href="./collections.html">
+                    COLLECTIONS
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="./shop_pages/weaves.html">
+                    WEAVES
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="./shop_pages/about.html">
+                    OUR HERITAGE
+                </a>
+            </div>
+
+            <div class="nav-item">
+                <a href="./shop_pages/atelier.html">
+                    BESPOKE ATELIER
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="nav-right">
+
+            <a
+                href="./account-dashboard.html"
+                class="account-nav-link"
+            >
+                ACCOUNT
+            </a>
+
+            <button
+                class="nav-cta-btn"
+                id="cart-btn"
+            >
+                BAG (
+                <span id="cart-count">
+                    0
+                </span>
+                )
+            </button>
+
+            <button
+                class="search-icon-btn"
+                id="search-btn"
+                aria-label="Search"
+            >
+
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="8"
+                    ></circle>
+
+                    <line
+                        x1="21"
+                        y1="21"
+                        x2="16.65"
+                        y2="16.65"
+                    ></line>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <main class="account-dashboard">
+
+
+        <!-- =================================================
+             DASHBOARD HERO
+        ================================================== -->
+
+        <section class="dashboard-hero">
+
+            <div class="dashboard-hero-inner">
+
+                <span class="dashboard-eyebrow">
+                    PRIVATE CLIENT SPACE
+                </span>
+
+                <h1>
+                    My Account
+                </h1>
+
+                <p id="dashboard-welcome">
+                    Welcome to LR Handlooms.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DASHBOARD CONTENT
+        ================================================== -->
+
+        <section class="dashboard-content">
+
+            <div class="dashboard-layout">
+
+
+                <!-- =========================================
+                     SIDEBAR
+                ========================================== -->
+
+                <aside class="dashboard-sidebar">
+
+                    <div class="dashboard-user">
+
+                        <span class="dashboard-user-label">
+                            SIGNED IN AS
+                        </span>
+
+                        <h2 id="user-name">
+                            —
+                        </h2>
+
+                        <p id="user-email">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <nav class="dashboard-nav">
+
+                        <button
+                            type="button"
+                            class="dashboard-nav-item active"
+                            data-section="orders"
+                        >
+                            <span>
+                                01
+                            </span>
+
+                            MY ORDERS
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="dashboard-nav-item"
+                            data-section="profile"
+                        >
+                            <span>
+                                02
+                            </span>
+
+                            PROFILE
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="dashboard-nav-item"
+                            data-section="addresses"
+                        >
+                            <span>
+                                03
+                            </span>
+
+                            ADDRESSES
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="dashboard-nav-item"
+                            data-section="settings"
+                        >
+                            <span>
+                                04
+                            </span>
+
+                            ACCOUNT SETTINGS
+                        </button>
+
+                    </nav>
+
+
+                    <button
+                        type="button"
+                        class="dashboard-logout"
+                        id="logout-btn"
+                    >
+
+                        LOG OUT
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+                </aside>
+
+
+                <!-- =========================================
+                     MAIN PANEL
+                ========================================== -->
+
+                <div class="dashboard-main">
+
+
+                    <!-- =====================================
+                         ORDERS
+                    ====================================== -->
+
+                    <section
+                        class="dashboard-section active"
+                        id="orders-section"
+                    >
+
+                        <div class="dashboard-section-heading">
+
+                            <div>
+
+                                <span>
+                                    YOUR JOURNEY
+                                </span>
+
+                                <h2>
+                                    My Orders
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="orders-container"
+                            id="orders-container"
+                        >
+
+                            <div class="dashboard-empty-state">
+
+                                <span class="empty-number">
+                                    01
+                                </span>
+
+                                <h3>
+                                    Your orders will appear here.
+                                </h3>
+
+                                <p>
+                                    Once you make your first purchase,
+                                    you can track your order, payment
+                                    and delivery details from this space.
+                                </p>
+
+                                <a
+                                    href="./collections.html"
+                                    class="dashboard-action-link"
+                                >
+                                    EXPLORE COLLECTIONS
+                                    <span>→</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =====================================
+                         PROFILE
+                    ====================================== -->
+
+                    <section
+                        class="dashboard-section"
+                        id="profile-section"
+                    >
+
+                        <div class="dashboard-section-heading">
+
+                            <div>
+
+                                <span>
+                                    YOUR DETAILS
+                                </span>
+
+                                <h2>
+                                    Profile
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-card">
+
+                            <div class="profile-row">
+
+                                <span>
+                                    FULL NAME
+                                </span>
+
+                                <strong id="profile-name">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-row">
+
+                                <span>
+                                    EMAIL
+                                </span>
+
+                                <strong id="profile-email">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-row">
+
+                                <span>
+                                    PHONE
+                                </span>
+
+                                <strong id="profile-phone">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-row">
+
+                                <span>
+                                    MEMBER SINCE
+                                </span>
+
+                                <strong id="profile-created">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =====================================
+                         ADDRESSES
+                    ====================================== -->
+
+                    <section
+                        class="dashboard-section"
+                        id="addresses-section"
+                    >
+
+                        <div class="dashboard-section-heading">
+
+                            <div>
+
+                                <span>
+                                    DELIVERY
+                                </span>
+
+                                <h2>
+                                    Addresses
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="addresses-container"
+                            id="addresses-container"
+                        >
+
+                            <div class="dashboard-empty-state">
+
+                                <span class="empty-number">
+                                    03
+                                </span>
+
+                                <h3>
+                                    No saved addresses.
+                                </h3>
+
+                                <p>
+                                    Your delivery addresses will appear
+                                    here once you add them during checkout.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =====================================
+                         SETTINGS
+                    ====================================== -->
+
+                    <section
+                        class="dashboard-section"
+                        id="settings-section"
+                    >
+
+                        <div class="dashboard-section-heading">
+
+                            <div>
+
+                                <span>
+                                    ACCOUNT
+                                </span>
+
+                                <h2>
+                                    Settings
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="settings-card">
+
+                            <div class="settings-row">
+
+                                <div>
+
+                                    <span>
+                                        ACCOUNT STATUS
+                                    </span>
+
+                                    <p>
+                                        Your LR Handlooms account is active.
+                                    </p>
+
+                                </div>
+
+                                <strong class="status-active">
+                                    ACTIVE
+                                </strong>
+
+                            </div>
+
+
+                            <div class="settings-row">
+
+                                <div>
+
+                                    <span>
+                                        SECURITY
+                                    </span>
+
+                                    <p>
+                                        Your password is securely protected.
+                                    </p>
+
+                                </div>
+
+                                <strong>
+                                    SECURE
+                                </strong>
+
+                            </div>
+
+
+                            <div class="settings-row danger-row">
+
+                                <div>
+
+                                    <span>
+                                        SIGN OUT
+                                    </span>
+
+                                    <p>
+                                        Sign out from this device.
+                                    </p>
+
+                                </div>
+
+                                <button
+                                    type="button"
+                                    id="settings-logout"
+                                >
+                                    LOG OUT →
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-col brand-col">
+
+                <div class="footer-logo-wrap">
+
+                    <img
+                        src="./logo.jpg"
+                        alt="LR Handlooms Logo"
+                        class="footer-logo-img"
+                    >
+
+                    <div class="footer-brand-meta">
+
+                        <span class="brand-title">
+                            LR HANDLOOMS
+                        </span>
+
+                        <span class="brand-tagline">
+                            MADE IN MANIABANDHA
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="brand-desc">
+                    Redefining Indian heritage weaving &
+                    authentic Maniabandha textiles for the
+                    global connoisseur.
+                </p>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    CLIENT CARE
+                </h4>
+
+                <a href="#">
+                    Worldwide Shipping
+                </a>
+
+                <a href="#">
+                    Care Instructions
+                </a>
+
+                <a href="#">
+                    Private Appointments
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    THE HOUSE
+                </h4>
+
+                <a href="./collections.html">
+                    Collections
+                </a>
+
+                <a href="./shop_pages/about.html">
+                    Our Heritage
+                </a>
+
+                <a href="./shop_pages/atelier.html">
+                    Bespoke Atelier
+                </a>
+
+            </div>
+
+
+            <div class="footer-col">
+
+                <h4>
+                    NEWSLETTER
+                </h4>
+
+                <p class="newsletter-sub">
+                    Subscribe for private preview access
+                    to seasonal edits & rare weave drops.
+                </p>
+
+
+                <form
+                    class="newsletter-box"
+                    onsubmit="event.preventDefault();"
+                >
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        aria-label="Subscribe"
+                    >
+                        →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.
+            </p>
+
+            <div class="footer-legal">
+
+                <a href="#">
+                    PRIVACY POLICY
+                </a>
+
+                <a href="#">
+                    TERMS & CONDITIONS
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

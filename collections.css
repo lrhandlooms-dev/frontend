@@ -1,0 +1,688 @@
+/* =========================================================
+   LR HANDLOOMS — COLLECTIONS PAGE
+   ========================================================= */
+
+:root {
+    --collection-cream: #f5f1e9;
+    --collection-paper: #ebe5da;
+    --collection-ink: #171614;
+    --collection-muted: #777169;
+    --collection-line: rgba(23, 22, 20, 0.16);
+}
+
+
+/* =========================================================
+   PAGE BASE
+   ========================================================= */
+
+body {
+    background: var(--collection-cream);
+    color: var(--collection-ink);
+}
+
+main {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.collections-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.48) 100%
+        ),
+        url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=85&w=2000&auto=format&fit=crop")
+        center center / cover no-repeat;
+}
+
+.collections-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(255, 255, 255, 0.10),
+            transparent 38%
+        );
+    pointer-events: none;
+}
+
+.collections-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(10, 9, 8, 0.72),
+        rgba(10, 9, 8, 0.08) 70%
+    );
+}
+
+.collections-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1180px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 130px 0 95px;
+    color: #fff;
+}
+
+.collections-eyebrow {
+    margin: 0 0 22px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    opacity: 0.78;
+}
+
+.collections-hero-content h1 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(64px, 9vw, 138px);
+    font-weight: 300;
+    line-height: 0.82;
+    letter-spacing: -0.045em;
+}
+
+.collections-hero-description {
+    max-width: 560px;
+    margin: 35px 0 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.9;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.collections-intro {
+    padding: 150px 0 125px;
+    background: var(--collection-cream);
+}
+
+.collections-intro-inner {
+    width: min(900px, calc(100% - 80px));
+    margin: 0 auto;
+    text-align: center;
+}
+
+.collections-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: var(--collection-muted);
+}
+
+.collections-intro h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(46px, 6vw, 82px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+}
+
+.collections-intro h2 em {
+    font-weight: 300;
+}
+
+.collections-intro p {
+    max-width: 560px;
+    margin: 32px auto 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: var(--collection-muted);
+}
+
+
+/* =========================================================
+   ALL COLLECTIONS SECTION
+   ========================================================= */
+
+.all-collections {
+    position: relative;
+    padding: 0 0 120px;
+    background: var(--collection-cream);
+}
+
+.collections-section-header {
+    width: min(1380px, calc(100% - 80px));
+    margin: 0 auto 38px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.collections-section-header h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.collections-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.collections-arrow {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--collection-line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--collection-ink);
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.collections-arrow:hover {
+    background: var(--collection-ink);
+    color: var(--collection-cream);
+    transform: translateY(-2px);
+}
+
+.collections-arrow:disabled {
+    opacity: 0.25;
+    cursor: default;
+    transform: none;
+}
+
+
+/* =========================================================
+   HORIZONTAL VIEWPORT
+   ========================================================= */
+
+.collections-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+.collections-viewport.is-dragging {
+    cursor: grabbing;
+}
+
+.collections-track {
+    display: flex;
+    gap: 22px;
+    width: max-content;
+    padding: 0 max(40px, calc((100vw - 1380px) / 2));
+    will-change: transform;
+}
+
+
+/* =========================================================
+   COLLECTION CARD
+   ========================================================= */
+
+.collection-card {
+    position: relative;
+    flex: 0 0 clamp(280px, 29vw, 430px);
+    height: clamp(440px, 48vw, 610px);
+    overflow: hidden;
+    background: #ddd7cc;
+    text-decoration: none;
+    color: #fff;
+}
+
+.collection-card-image-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.collection-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-card:hover .collection-card-image {
+    transform: scale(1.045);
+}
+
+.collection-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.76) 0%,
+            rgba(0, 0, 0, 0.20) 48%,
+            rgba(0, 0, 0, 0.03) 100%
+        );
+    pointer-events: none;
+}
+
+.collection-card-content {
+    position: absolute;
+    z-index: 2;
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+}
+
+.collection-number {
+    display: block;
+    margin-bottom: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.collection-card-title {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+}
+
+.collection-card-description {
+    max-width: 330px;
+    margin: 15px 0 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.75);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.collection-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.collection-card-link span {
+    transition: transform 0.35s ease;
+}
+
+.collection-card:hover .collection-card-link span {
+    transform: translateX(6px);
+}
+
+
+/* =========================================================
+   LOADING STATE
+   ========================================================= */
+
+.collections-loading {
+    width: min(500px, calc(100vw - 80px));
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    border: 1px solid var(--collection-line);
+    color: var(--collection-muted);
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+}
+
+.collections-loading-line {
+    width: 80px;
+    height: 1px;
+    background: currentColor;
+    transform-origin: left center;
+    animation: collectionLoading 1.4s ease-in-out infinite;
+}
+
+@keyframes collectionLoading {
+    0% {
+        transform: scaleX(0);
+    }
+
+    50% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+        transform-origin: right center;
+    }
+}
+
+
+/* =========================================================
+   EMPTY / ERROR
+   ========================================================= */
+
+.collections-message {
+    width: min(700px, calc(100vw - 80px));
+    padding: 70px 30px;
+    border-top: 1px solid var(--collection-line);
+    border-bottom: 1px solid var(--collection-line);
+    text-align: center;
+}
+
+.collections-message-title {
+    margin: 0 0 12px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.collections-message-text {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--collection-muted);
+}
+
+
+/* =========================================================
+   SCROLL HINT
+   ========================================================= */
+
+.collections-scroll-hint {
+    width: min(1380px, calc(100% - 80px));
+    margin: 28px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--collection-muted);
+}
+
+.scroll-line {
+    width: 70px;
+    height: 1px;
+    background: var(--collection-line);
+}
+
+
+/* =========================================================
+   HERITAGE CTA
+   ========================================================= */
+
+.collections-heritage {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            rgba(20, 18, 15, 0.55),
+            rgba(20, 18, 15, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1606760227091-3dd850d492a7?q=85&w=1800&auto=format&fit=crop")
+        center / cover no-repeat;
+}
+
+.collections-heritage-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    text-align: center;
+    color: #fff;
+}
+
+.collections-heritage-content .collections-label {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.collections-heritage-content h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(52px, 7vw, 92px);
+    font-weight: 300;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+}
+
+.collections-heritage-content h2 em {
+    font-weight: 300;
+}
+
+.collections-heritage-content p {
+    max-width: 560px;
+    margin: 30px auto 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.collections-heritage-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 35px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+}
+
+.collections-heritage-link span {
+    transition: transform 0.35s ease;
+}
+
+.collections-heritage-link:hover span {
+    transform: translateX(7px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .collections-hero {
+        min-height: 64vh;
+    }
+
+    .collections-hero-content {
+        width: calc(100% - 40px);
+        padding: 100px 0 65px;
+    }
+
+    .collections-intro {
+        padding: 100px 0 85px;
+    }
+
+    .collections-intro-inner {
+        width: calc(100% - 40px);
+    }
+
+    .collections-section-header {
+        width: calc(100% - 40px);
+        align-items: flex-start;
+    }
+
+    .collections-controls {
+        display: none;
+    }
+
+    .collections-track {
+        gap: 14px;
+        padding: 0 20px;
+    }
+
+    .collection-card {
+        flex-basis: min(78vw, 360px);
+        height: 500px;
+    }
+
+    .collection-card-content {
+        left: 24px;
+        right: 24px;
+        bottom: 25px;
+    }
+
+    .collections-scroll-hint {
+        width: calc(100% - 40px);
+    }
+
+    .collections-heritage {
+        min-height: 65vh;
+        padding: 90px 25px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .collections-hero {
+        min-height: 58vh;
+    }
+
+    .collections-hero-content {
+        width: calc(100% - 30px);
+    }
+
+    .collections-hero-description {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .collections-intro {
+        padding: 80px 0 70px;
+    }
+
+    .collections-intro-inner {
+        width: calc(100% - 30px);
+    }
+
+    .collections-section-header {
+        width: calc(100% - 30px);
+        margin-bottom: 25px;
+    }
+
+    .collections-section-header h2 {
+        font-size: 45px;
+    }
+
+    .collections-track {
+        padding: 0 15px;
+    }
+
+    .collection-card {
+        flex-basis: 82vw;
+        height: 470px;
+    }
+
+    .collection-card-title {
+        font-size: 42px;
+    }
+
+    .collections-scroll-hint {
+        width: calc(100% - 30px);
+        justify-content: center;
+    }
+
+    .collections-heritage {
+        padding: 80px 20px;
+    }
+
+    .collections-heritage-content h2 {
+        font-size: 56px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .collection-card-image,
+    .collection-card-link span,
+    .collections-heritage-link span,
+    .collections-arrow {
+        transition: none;
+    }
+
+    .collections-loading-line {
+        animation: none;
+    }
+
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payment — LR Handlooms</title>
+
+    <link
+        rel="stylesheet"
+        href="payment.css"
+    >
+</head>
+
+<body>
+
+    <header class="payment-header">
+
+        <a href="./index.html" class="brand">
+            <span>LR HANDLOOMS</span>
+            <small>MADE IN MANIABANDHA</small>
+        </a>
+
+        <span class="secure">
+            SECURE UPI PAYMENT
+        </span>
+
+    </header>
+
+
+    <main class="payment-page">
+
+        <section class="payment-card">
+
+            <div class="payment-eyebrow">
+                PAYMENT
+            </div>
+
+            <h1>
+                Complete your payment
+            </h1>
+
+            <p class="payment-intro">
+                Scan the QR code with any UPI app
+                or use our UPI ID to complete your payment.
+            </p>
+
+
+            <!-- TOTAL -->
+
+            <div class="payment-total-box">
+
+                <span>AMOUNT PAYABLE</span>
+
+                <strong id="payment-total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <!-- QR -->
+
+            <div class="qr-section">
+
+                <div class="qr-frame">
+
+                    <img
+                        id="upi-qr"
+                        src=""
+                        alt="UPI Payment QR Code"
+                    >
+
+                </div>
+
+                <p class="scan-text">
+                    SCAN WITH ANY UPI APP
+                </p>
+
+            </div>
+
+
+            <!-- UPI ID -->
+
+            <div class="upi-section">
+
+                <span class="upi-label">
+                    PAY USING UPI ID
+                </span>
+
+                <div class="upi-row">
+
+                    <span id="upi-id">
+                        6370392365@yespop
+                    </span>
+
+                    <button
+                        type="button"
+                        id="copy-upi"
+                    >
+                        COPY
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- UTR -->
+
+            <form id="payment-form">
+
+                <div class="utr-section">
+
+                    <label for="utr">
+                        TRANSACTION ID / UTR
+                    </label>
+
+                    <input
+                        type="text"
+                        id="utr"
+                        name="utr"
+                        placeholder="Enter your UTR / transaction ID"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <p>
+                        Enter the transaction ID shown
+                        after completing your UPI payment.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="payment-message"
+                    class="payment-message"
+                    aria-live="polite"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    id="place-order-btn"
+                    class="place-order-btn"
+                >
+                    <span>PLACE ORDER</span>
+                    <span>→</span>
+                </button>
+
+            </form>
+
+
+            <div class="payment-note">
+
+                <strong>
+                    Order confirmation
+                </strong>
+
+                <p>
+                    Your order will be received immediately.
+                    Payment will remain pending until our team
+                    verifies your transaction.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="payment.js"></script>
+
+</body>
+
+</html>

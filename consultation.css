@@ -1,0 +1,648 @@
+/* =========================================================
+   LR HANDLOOMS — PRIVATE CONSULTATION
+========================================================= */
+
+:root {
+    --consult-bg: #171513;
+    --consult-cream: #efebe4;
+    --consult-gold: #9e7e56;
+    --consult-text: #f5f1ea;
+    --consult-muted: rgba(245, 241, 234, 0.68);
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.consultation-page {
+    min-height: 100vh;
+}
+
+
+body {
+    margin: 0;
+    background: var(--consult-bg);
+    color: var(--consult-text);
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.consultation-page-bg {
+
+    position: fixed;
+
+    inset: -20px;
+
+    background-image:
+        url("https://images.unsplash.com/photo-1610030469983-98e550d0802d?q=85&w=2200&auto=format&fit=crop");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(4px);
+
+    transform: scale(1.04);
+
+    z-index: -3;
+}
+
+
+.consultation-page-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(12, 10, 8, 0.94),
+            rgba(12, 10, 8, 0.78)
+        );
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.consultation-nav {
+
+    width: 100%;
+
+    padding: 32px 5vw;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.consultation-logo {
+
+    text-decoration: none;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.consultation-logo-main {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    letter-spacing: 3px;
+}
+
+
+.consultation-logo-sub {
+
+    font-size: 8px;
+
+    letter-spacing: 2.5px;
+
+    opacity: .65;
+}
+
+
+.consultation-back {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: .7;
+
+    transition: .3s ease;
+}
+
+
+.consultation-back:hover {
+
+    opacity: 1;
+
+    color: #c5a059;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.consultation-main {
+
+    width: min(1180px, 90vw);
+
+    margin: 45px auto 90px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, .85fr)
+        minmax(420px, 1.15fr);
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.consultation-intro {
+
+    padding-bottom: 30px;
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    color: #c5a059;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+
+.consultation-intro h1 {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 400;
+
+    font-size: clamp(
+        52px,
+        6vw,
+        88px
+    );
+
+    line-height: .88;
+
+    letter-spacing: -2px;
+}
+
+
+.intro-line {
+
+    width: 70px;
+
+    height: 1px;
+
+    background: #c5a059;
+
+    margin: 32px 0;
+}
+
+
+.consultation-intro p {
+
+    max-width: 440px;
+
+    margin: 0;
+
+    color: var(--consult-muted);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    font-weight: 300;
+}
+
+
+.intro-details {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 14px;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.consultation-card {
+
+    background: rgba(
+        239,
+        235,
+        228,
+        .97
+    );
+
+    color: #1e1b18;
+
+    padding: 48px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.45);
+
+    border:
+        1px solid
+        rgba(197,160,89,.35);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 22px;
+
+    margin-bottom: 28px;
+
+    border-bottom:
+        1px solid
+        rgba(30,27,24,.15);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #9e7e56;
+}
+
+
+/* =========================================================
+   FIELDS
+========================================================= */
+
+.consultation-field {
+
+    margin-bottom: 25px;
+}
+
+
+.consultation-field label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+
+    color: #5e574f;
+}
+
+
+.consultation-field input,
+.consultation-field select,
+.consultation-field textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        rgba(30,27,24,.25);
+
+    background: transparent;
+
+    padding: 12px 0;
+
+    outline: none;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 12px;
+
+    color: #1e1b18;
+
+    transition:
+        border-color .3s ease;
+}
+
+
+.consultation-field input:focus,
+.consultation-field select:focus,
+.consultation-field textarea:focus {
+
+    border-bottom-color:
+        #9e7e56;
+}
+
+
+.consultation-field textarea {
+
+    resize: vertical;
+
+    min-height: 110px;
+
+    line-height: 1.7;
+}
+
+
+.consultation-field select {
+
+    cursor: pointer;
+
+    appearance: none;
+}
+
+
+.consultation-field input::placeholder,
+.consultation-field textarea::placeholder {
+
+    color: #9a938b;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.consultation-status {
+
+    min-height: 20px;
+
+    margin: 5px 0 15px;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+}
+
+
+.consultation-status.success {
+
+    color: #55724f;
+}
+
+
+.consultation-status.error {
+
+    color: #a33d32;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.consultation-submit {
+
+    width: 100%;
+
+    border: 1px solid #1e1b18;
+
+    background: #1e1b18;
+
+    color: white;
+
+    padding: 18px 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+.consultation-submit:hover {
+
+    background: #9e7e56;
+
+    border-color: #9e7e56;
+
+}
+
+
+.consultation-submit:active {
+
+    transform: scale(.99);
+}
+
+
+.consultation-submit:disabled {
+
+    opacity: .6;
+
+    cursor: wait;
+}
+
+
+.submit-arrow {
+
+    font-size: 18px;
+
+    line-height: 0;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.form-note {
+
+    margin: 18px 0 0;
+
+    color: #8a837b;
+
+    font-size: 8px;
+
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.consultation-footer {
+
+    width: min(1180px, 90vw);
+
+    margin: 0 auto;
+
+    padding: 25px 0 35px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .consultation-nav {
+
+        padding:
+            24px 6vw;
+    }
+
+
+    .consultation-main {
+
+        width: 88vw;
+
+        margin-top: 30px;
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .consultation-intro h1 {
+
+        font-size: 60px;
+    }
+
+
+    .consultation-card {
+
+        padding: 32px 25px;
+    }
+
+
+    .consultation-footer {
+
+        width: 88vw;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .consultation-logo-main {
+
+        font-size: 22px;
+    }
+
+
+    .consultation-back {
+
+        font-size: 7px;
+    }
+
+
+    .consultation-intro h1 {
+
+        font-size: 48px;
+    }
+
+
+    .consultation-card {
+
+        padding: 28px 20px;
+    }
+
+
+    .card-top {
+
+        font-size: 7px;
+    }
+
+
+    .consultation-footer {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+}

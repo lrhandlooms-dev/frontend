@@ -1,0 +1,584 @@
+/* =========================================================
+   LR HANDLOOMS — ACCOUNT PAGE
+   ========================================================= */
+
+:root {
+    --account-bg: #f4f0e8;
+    --account-paper: #ebe5da;
+    --account-ink: #171614;
+    --account-muted: #777169;
+    --account-line: rgba(23, 22, 20, 0.15);
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.account-page {
+    background: var(--account-bg);
+    color: var(--account-ink);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.account-hero {
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(20, 18, 15, 0.08),
+            rgba(20, 18, 15, 0.62)
+        ),
+        url("https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=85&w=2000&auto=format&fit=crop")
+        center / cover no-repeat;
+
+    color: #fff;
+}
+
+.account-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.65),
+            transparent 65%
+        );
+}
+
+.account-hero-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 80px));
+    margin: 0 auto;
+
+    padding: 110px 0 75px;
+}
+
+.account-eyebrow {
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.account-hero h1 {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(65px, 9vw, 130px);
+    font-weight: 300;
+
+    line-height: 0.82;
+    letter-spacing: -0.045em;
+}
+
+.account-hero-inner p {
+    max-width: 520px;
+
+    margin: 30px 0 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* =========================================================
+   AUTH SECTION
+   ========================================================= */
+
+.account-auth-section {
+    padding: 130px 30px;
+
+    background: var(--account-bg);
+}
+
+.account-auth-card {
+    width: min(580px, 100%);
+    margin: 0 auto;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   AUTH PANEL
+   ========================================================= */
+
+.auth-panel {
+    display: none;
+
+    padding: 60px 65px;
+
+    border: 1px solid var(--account-line);
+
+    background: rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.auth-panel.active {
+    display: block;
+}
+
+
+/* =========================================================
+   AUTH HEADING
+   ========================================================= */
+
+.auth-heading {
+    margin-bottom: 45px;
+}
+
+.auth-heading > span {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+
+    color: var(--account-muted);
+}
+
+.auth-heading h2 {
+    margin: 0;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 62px;
+    font-weight: 300;
+
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+}
+
+.auth-heading p {
+    max-width: 420px;
+
+    margin: 22px 0 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.9;
+
+    color: var(--account-muted);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    color: var(--account-muted);
+}
+
+.form-group input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 0;
+    border-bottom: 1px solid var(--account-line);
+
+    outline: none;
+
+    background: transparent;
+
+    color: var(--account-ink);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(23, 22, 20, 0.35);
+}
+
+.form-group input:focus {
+    border-bottom-color: var(--account-ink);
+
+    background: rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+   ========================================================= */
+
+.auth-submit-btn {
+    width: 100%;
+    min-height: 58px;
+
+    margin-top: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    border: 1px solid var(--account-ink);
+
+    background: var(--account-ink);
+    color: var(--account-bg);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+
+    cursor: pointer;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.auth-submit-btn span {
+    font-size: 17px;
+    transition: transform 0.35s ease;
+}
+
+.auth-submit-btn:hover {
+    background: transparent;
+    color: var(--account-ink);
+}
+
+.auth-submit-btn:hover span {
+    transform: translateX(6px);
+}
+
+.auth-submit-btn:active {
+    transform: scale(0.985);
+}
+
+.auth-submit-btn.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.auth-message {
+    min-height: 16px;
+
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+
+    line-height: 1.6;
+    text-align: center;
+}
+
+.auth-message.success {
+    color: #53614d;
+}
+
+.auth-message.error {
+    color: #9a4c42;
+}
+
+
+/* =========================================================
+   SWITCH
+   ========================================================= */
+
+.auth-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 38px;
+
+    padding-top: 28px;
+
+    border-top: 1px solid var(--account-line);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 300;
+
+    color: var(--account-muted);
+}
+
+.auth-switch button {
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+    color: var(--account-ink);
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.10em;
+
+    cursor: pointer;
+}
+
+.auth-switch button:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.account-features {
+    width: min(1180px, calc(100% - 80px));
+
+    margin: 0 auto;
+
+    padding: 0 0 140px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
+}
+
+.account-feature {
+    padding-top: 25px;
+
+    border-top: 1px solid var(--account-line);
+}
+
+.feature-number {
+    display: block;
+
+    margin-bottom: 25px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: 0.22em;
+
+    color: var(--account-muted);
+}
+
+.account-feature h3 {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+}
+
+.account-feature p {
+    max-width: 280px;
+
+    margin: 18px 0 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+
+    line-height: 1.9;
+
+    color: var(--account-muted);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .account-hero {
+        min-height: 58vh;
+    }
+
+    .account-hero-inner {
+        width: calc(100% - 40px);
+
+        padding: 90px 0 60px;
+    }
+
+    .account-auth-section {
+        padding: 90px 20px;
+    }
+
+    .auth-panel {
+        padding: 50px 40px;
+    }
+
+    .account-features {
+        width: calc(100% - 40px);
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding-bottom: 90px;
+    }
+
+    .account-feature p {
+        max-width: 450px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .account-hero {
+        min-height: 55vh;
+    }
+
+    .account-hero-inner {
+        width: calc(100% - 30px);
+
+        padding: 80px 0 45px;
+    }
+
+    .account-hero h1 {
+        font-size: 68px;
+    }
+
+    .account-hero-inner p {
+        font-size: 10px;
+    }
+
+    .account-auth-section {
+        padding: 70px 15px;
+    }
+
+    .auth-panel {
+        padding: 40px 25px;
+    }
+
+    .auth-heading {
+        margin-bottom: 38px;
+    }
+
+    .auth-heading h2 {
+        font-size: 52px;
+    }
+
+    .auth-heading p {
+        font-size: 10px;
+    }
+
+    .auth-form {
+        gap: 24px;
+    }
+
+    .auth-switch {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .account-features {
+        width: calc(100% - 30px);
+
+        padding-bottom: 70px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.form-group input:focus-visible,
+.auth-submit-btn:focus-visible,
+.auth-switch button:focus-visible {
+    outline: 1px solid var(--account-ink);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .form-group input,
+    .auth-submit-btn,
+    .auth-submit-btn span {
+        transition: none;
+    }
+
+}

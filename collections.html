@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Collections | LR Handlooms</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Collections CSS -->
+    <link rel="stylesheet" href="collections.css">
+
+    <!-- GSAP -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        defer>
+    </script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+        defer>
+    </script>
+
+    <!-- Main Website JS -->
+    <script src="script.js" defer></script>
+
+    <!-- Collections JS -->
+    <script src="collections.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PRELOADER
+    ====================================================== -->
+
+    <div class="preloader" id="preloader">
+
+        <div class="loader-content">
+
+            <h1 class="loader-logo">
+                LR HANDLOOMS
+            </h1>
+
+            <p class="loader-sub">
+                HERITAGE SILKS & WEAVES
+            </p>
+
+            <div class="loader-bar-wrap">
+                <div class="loader-bar"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ANNOUNCEMENT BAR
+    ====================================================== -->
+
+    <div class="announcement-bar">
+
+        <span>
+            COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY
+        </span>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <!-- LEFT -->
+
+        <div class="nav-left">
+
+            <a href="./index.html" class="brand-logo-wrap">
+
+                <div class="brand-logo">
+                    LR HANDLOOMS
+                </div>
+
+                <span class="brand-subtext">
+                    MADE IN MANIABANDHA
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- CENTER -->
+
+        <div class="nav-center">
+
+            <div class="nav-item">
+
+                <a href="./collections.html">
+                    COLLECTIONS
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/weaves.html">
+                    WEAVES
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/about.html">
+                    OUR HERITAGE
+                </a>
+
+            </div>
+
+
+            <div class="nav-item">
+
+                <a href="./shop_pages/atelier.html">
+                    BESPOKE ATELIER
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+
+        <div class="nav-right">
+
+            <button
+                class="nav-cta-btn"
+                id="cart-btn">
+
+                BAG (
+                <span id="cart-count">
+                    0
+                </span>
+                )
+
+            </button>
+
+
+            <button
+                class="search-icon-btn"
+                aria-label="Search">
+
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="8">
+                    </circle>
+
+                    <line
+                        x1="21"
+                        y1="21"
+                        x2="16.65"
+                        y2="16.65">
+                    </line>
+
+                </svg>
+
+            </button>
+
+
+            <button
+                class="mobile-menu-btn"
+                id="mobile-menu-btn"
+                aria-label="Toggle Navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         COLLECTIONS HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="collections-hero">
+
+            <div class="collections-hero-overlay"></div>
+
+            <div class="collections-hero-content">
+
+                <p class="collections-eyebrow">
+                    THE HOUSE OF LR HANDLOOMS
+                </p>
+
+                <h1>
+                    Our Collections
+                </h1>
+
+                <p class="collections-hero-description">
+                    Discover handwoven traditions, timeless textures,
+                    and heritage weaves crafted with generations of
+                    knowledge.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COLLECTIONS INTRO
+        ================================================== -->
+
+        <section class="collections-intro">
+
+            <div class="collections-intro-inner">
+
+                <span class="collections-label">
+                    EXPLORE THE HOUSE
+                </span>
+
+                <h2>
+                    Woven traditions,
+                    <em>curated for you.</em>
+                </h2>
+
+                <p>
+                    Explore our complete collection of handwoven
+                    textiles, each rooted in the artistry and
+                    heritage of Maniabandha.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COLLECTIONS
+        ================================================== -->
+
+        <section class="all-collections">
+
+            <div class="collections-section-header">
+
+                <div>
+
+                    <span class="collections-label">
+                        COLLECTIONS
+                    </span>
+
+                    <h2>
+                        The Heritage Edit
+                    </h2>
+
+                </div>
+
+
+                <div class="collections-controls">
+
+                    <button
+                        type="button"
+                        class="collections-arrow"
+                        id="collectionsPrev"
+                        aria-label="Previous collection">
+
+                        ←
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="collections-arrow"
+                        id="collectionsNext"
+                        aria-label="Next collection">
+
+                        →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- HORIZONTAL COLLECTION TRACK -->
+
+            <div
+                class="collections-viewport"
+                id="collectionsViewport">
+
+                <div
+                    class="collections-track"
+                    id="collectionsTrack">
+
+                    <!--
+                        Dynamic categories will be inserted
+                        here by collections.js
+                    -->
+
+                    <div class="collections-loading">
+
+                        <div class="collections-loading-line"></div>
+
+                        <span>
+                            LOADING COLLECTIONS...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCROLL HINT -->
+
+            <div class="collections-scroll-hint">
+
+                <span>
+                    DRAG TO EXPLORE
+                </span>
+
+                <span class="scroll-line"></span>
+
+                <span>
+                    →
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HERITAGE CTA
+        ================================================== -->
+
+        <section class="collections-heritage">
+
+            <div class="collections-heritage-content">
+
+                <span class="collections-label">
+                    FROM MANIABANDHA
+                </span>
+
+                <h2>
+                    Every weave carries
+                    <em>a story.</em>
+                </h2>
+
+                <p>
+                    From the hands of our artisans to your wardrobe,
+                    every LR Handlooms creation preserves a piece
+                    of India's living textile heritage.
+                </p>
+
+                <a
+                    href="./shop_pages/about.html"
+                    class="collections-heritage-link">
+
+                    DISCOVER OUR HERITAGE
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         CART OVERLAY
+    ====================================================== -->
+
+    <div
+        class="cart-overlay"
+        id="cart-overlay">
+    </div>
+
+
+    <!-- =====================================================
+         CART DRAWER
+    ====================================================== -->
+
+    <div
+        class="cart-drawer"
+        id="cart-drawer">
+
+        <div class="cart-header">
+
+            <h3>
+                YOUR SHOPPING BAG
+            </h3>
+
+            <span
+                class="close-cart"
+                id="close-cart">
+
+                &times;
+
+            </span>
+
+        </div>
+
+
+        <div class="cart-body">
+
+            <p id="empty-msg">
+                Your shopping bag is currently empty.
+            </p>
+
+            <div id="cart-items"></div>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="subtotal">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="cart-total">
+                    ₹0
+                </span>
+
+            </div>
+
+
+            <p class="tax-note">
+                Taxes and worldwide insured shipping
+                calculated at checkout.
+            </p>
+
+
+            <button class="checkout-btn">
+                PROCEED TO CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SEARCH OVERLAY
+    ====================================================== -->
+
+    <div
+        class="search-overlay"
+        id="search-overlay">
+
+        <button
+            class="close-search-btn"
+            id="close-search"
+            aria-label="Close Search">
+
+            &times;
+
+        </button>
+
+
+        <div class="search-container">
+
+            <p class="search-sub-label">
+                SEARCH OUR HERITAGE COLLECTION
+            </p>
+
+
+            <div class="search-input-wrap">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Type Banarasi, Kanjeevaram, Organza..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <div class="trending-searches">
+
+                <span class="trending-title">
+                    POPULAR SEARCHES:
+                </span>
+
+
+                <div class="search-tags">
+
+                    <a
+                        href="javascript:void(0)"
+                        onclick="fillSearch('Bridal Kanjeevaram')">
+
+                        Bridal Kanjeevaram
+
+                    </a>
+
+
+                    <a
+                        href="javascript:void(0)"
+                        onclick="fillSearch('Pure Tissue Organza')">
+
+                        Pure Tissue Organza
+
+                    </a>
+
+
+                    <a
+                        href="javascript:void(0)"
+                        onclick="fillSearch('Kadwa Banarasi')">
+
+                        Kadwa Banarasi
+
+                    </a>
+
+
+                    <a
+                        href="javascript:void(0)"
+                        onclick="fillSearch('Maniabandha Weaves')">
+
+                        Maniabandha Weaves
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-col brand-col">
+
+                <div class="footer-logo-wrap">
+
+                    <img
+                        src="logo.jpg"
+                        alt="LR Handlooms Logo"
+                        class="footer-logo-img">
+
+
+                    <div class="footer-brand-meta">
+
+                        <span class="brand-title">
+                            LR HANDLOOMS
+                        </span>
+
+                        <span class="brand-tagline">
+                            MADE IN MANIABANDHA
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="brand-desc">
+                    Redefining Indian heritage weaving &
+                    authentic Maniabandha textiles for the
+                    global connoisseur.
+                </p>
+
+            </div>
+
+
+            <!-- CLIENT CARE -->
+
+            <div class="footer-col">
+
+                <h4>
+                    CLIENT CARE
+                </h4>
+
+                <a href="#">
+                    Bespoke Fitting
+                </a>
+
+                <a href="#">
+                    Worldwide Shipping
+                </a>
+
+                <a href="#">
+                    Care Instructions
+                </a>
+
+                <a href="#">
+                    Private Appointments
+                </a>
+
+            </div>
+
+
+            <!-- HOUSE -->
+
+            <div class="footer-col">
+
+                <h4>
+                    THE HOUSE
+                </h4>
+
+                <a href="./shop_pages/about.html">
+                    Our Heritage
+                </a>
+
+                <a href="#">
+                    Weavers & Artisans
+                </a>
+
+                <a href="#">
+                    Sustainability
+                </a>
+
+                <a href="#">
+                    Press & Editorial
+                </a>
+
+            </div>
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="footer-col">
+
+                <h4>
+                    NEWSLETTER
+                </h4>
+
+                <p class="newsletter-sub">
+                    Subscribe for private preview access
+                    to seasonal edits & rare weave drops.
+                </p>
+
+
+                <form
+                    class="newsletter-box"
+                    onsubmit="event.preventDefault();">
+
+                    <input
+                        type="email"
+                        placeholder="Enter your email address"
+                        required>
+
+
+                    <button
+                        type="submit"
+                        aria-label="Subscribe">
+
+                        <svg
+                            width="18"
+                            height="12"
+                            viewBox="0 0 18 12"
+                            fill="none">
+
+                            <path
+                                d="M12 1L17 6M17 6L12 11M17 6H1"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.
+            </p>
+
+
+            <div class="footer-legal">
+
+                <a href="#">
+                    PRIVACY POLICY
+                </a>
+
+                <a href="#">
+                    TERMS & CONDITIONS
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

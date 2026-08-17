@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | LR HANDLOOMS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Outer CSS & JS -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 1. Announcement Bar -->
+    <div class="announcement-bar">
+        <span>COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING & INSURED DELIVERY</span>
+    </div>
+
+    <!-- 2. Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="../index.html" class="brand-logo-wrap">
+                <div class="brand-logo">LR HANDLOOMS</div>
+                <span class="brand-subtext">MADE IN MANIABANDHA</span>
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <div class="nav-item"><a href="shop_pages/shop.html">COLLECTIONS</a></div>
+            <div class="nav-item"><a href="weaves.html">WEAVES</a></div>
+            <div class="nav-item"><a href="about.html">OUR HERITAGE</a></div>
+            <div class="nav-item"><a href="atelier.html">BESPOKE ATELIER</a></div>
+        </div>
+
+        <div class="nav-right">
+            <button class="nav-cta-btn" id="cart-btn">BAG (<span id="cart-count">0</span>)</button>
+
+            <button class="search-icon-btn" aria-label="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 3. Product Detail Main Section -->
+    <main class="product-detail-section" style="padding: 80px 60px; max-width: 1300px; margin: 0 auto;">
+        <div class="product-detail-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+            
+            <!-- Left: Product Image -->
+            <div class="product-image-container">
+                <img id="detail-img" src="" alt="Handloom Masterpiece" style="width: 100%; height: auto; object-fit: cover; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
+            </div>
+
+            <!-- Right: Product Info & Actions -->
+            <div class="product-detail-info" style="display: flex; flex-direction: column; gap: 20px;">
+                <span id="detail-category" style="font-size: 0.7rem; letter-spacing: 3px; color: var(--accent-gold, #c5a059); font-weight: 600;">HERITAGE WEAVE</span>
+                
+                <h1 id="detail-name" style="font-family: var(--font-serif, serif); font-size: 2.8rem; font-weight: 500; color: var(--text-main, #111); margin: 0; line-height: 1.2;">Loading Product...</h1>
+                
+                <p id="detail-price" style="font-size: 1.5rem; font-weight: 500; color: var(--text-main, #111); margin: 0;">₹0</p>
+                
+                <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.1); margin: 10px 0;">
+
+                <p style="font-size: 0.85rem; color: #666; line-height: 1.6;">
+                    Handcrafted meticulously by master artisan families in Maniabandha. This masterpiece features authentic indigenous silk, centuries-old pit-loom weaving techniques, and certified GI-tagged heritage threads.
+                </p>
+
+                <!-- Actions -->
+                <div style="display: flex; gap: 20px; margin-top: 20px;">
+                    <button id="add-to-bag-main" class="checkout-btn" style="flex: 2; padding: 18px; font-weight: 600; letter-spacing: 2px;">ADD TO BAG</button>
+                    <a href="atelier.html" class="checkout-btn" style="flex: 1; background: transparent; color: var(--text-main, #111); border: 1px solid var(--text-main, #111); text-align: center; text-decoration: none; padding: 18px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px;">INQUIRE</a>
+                </div>
+
+                <!-- Additional Details Accordion / Notes -->
+                <div style="margin-top: 30px; font-size: 0.8rem; color: #555; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <p style="margin-bottom: 8px;">✓ 100% Pure Certified Handloom Silk</p>
+                    <p style="margin-bottom: 8px;">✓ Complimentary Worldwide Insured Delivery</p>
+                    <p style="margin-bottom: 0;">✓ Custom Blouse Piece Included</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 4. Slide-Over Shopping Bag Drawer & Overlay -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>YOUR SHOPPING BAG</h3>
+            <button class="close-cart-btn" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-body">
+            <p id="empty-msg">Your shopping bag is currently empty.</p>
+            <div id="cart-items"></div>
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span id="cart-total">₹0</span>
+            </div>
+            <p class="tax-note">Taxes and worldwide insured shipping calculated at checkout.</p>
+            <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- 5. Complete Footer -->
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <div class="footer-logo-wrap">
+                    <img src="logo.jpg" alt="LR Handlooms Logo" class="footer-logo-img">
+                    <div class="footer-brand-meta">
+                        <span class="brand-title">LR HANDLOOMS</span>
+                        <span class="brand-tagline">MADE IN MANIABANDHA</span>
+                    </div>
+                </div>
+                <p class="brand-desc">Redefining Indian heritage weaving & authentic Maniabandha textiles for the global connoisseur.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>CLIENT CARE</h4>
+                <a href="atelier.html">Bespoke Fitting</a>
+                <a href="#">Worldwide Shipping</a>
+                <a href="#">Care Instructions</a>
+                <a href="atelier.html">Private Appointments</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>THE HOUSE</h4>
+                <a href="about.html">Our Heritage</a>
+                <a href="weaves.html">Weavers & Artisans</a>
+                <a href="about.html">Sustainability</a>
+                <a href="#">Press & Editorial</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>NEWSLETTER</h4>
+                <p class="newsletter-sub">Subscribe for private preview access to seasonal edits & rare weave drops.</p>
+                <form class="newsletter-box" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" aria-label="Subscribe">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+                            <path d="M12 1L17 6M17 6L12 11M17 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 LR HANDLOOMS. ALL RIGHTS RESERVED.</p>
+            <div class="footer-legal">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS & CONDITIONS</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 6. Dynamic URL Parser Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+            const price = params.get('price');
+            const img = params.get('img');
+            const category = params.get('category');
+
+            if (name && price && img) {
+                document.getElementById('detail-name').innerText = name;
+                document.getElementById('detail-price').innerText = '₹' + Number(price).toLocaleString('en-IN');
+                document.getElementById('detail-img').src = img;
+                if(category) {
+                    document.getElementById('detail-category').innerText = category.toUpperCase();
+                }
+
+                // Bind Add to Bag Button
+                const addBtn = document.getElementById('add-to-bag-main');
+                if (addBtn) {
+                    addBtn.addEventListener('click', () => {
+                        addToCart(name, Number(price), img);
+                    });
+                }
+            } else {
+                document.getElementById('detail-name').innerText = "Heritage Masterpiece";
+                document.getElementById('detail-price').innerText = "₹85,000";
+                document.getElementById('detail-img').src = "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop";
+                
+                const addBtn = document.getElementById('add-to-bag-main');
+                if (addBtn) {
+                    addBtn.addEventListener('click', () => {
+                        addToCart("Heritage Masterpiece", 85000, "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1000&auto=format&fit=crop");
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
