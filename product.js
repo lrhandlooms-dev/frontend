@@ -124,58 +124,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getImageUrl(image) {
 
-    if (!image) {
-        return "";
-    }
+        if (!image) {
+            return "";
+        }
 
-    // If image is already a URL string
-    if (typeof image === "string") {
+        // If image is already a URL string
+        if (typeof image === "string") {
 
-        if (
-            image.startsWith("http://") ||
-            image.startsWith("https://") ||
-            image.startsWith("data:")
-        ) {
+            if (
+                image.startsWith("http://") ||
+                image.startsWith("https://") ||
+                image.startsWith("data:")
+            ) {
+                return image;
+            }
+
+            // Relative backend path
+            if (image.startsWith("/")) {
+                return `${API_BASE.replace(/\/api\/?$/, "")}${image}`;
+            }
+
             return image;
         }
 
-        // Relative backend path
-        if (image.startsWith("/")) {
-            return `${API_BASE.replace(/\/api\/?$/, "")}${image}`;
+        // Object-based image
+        const url =
+            image.secure_url ||
+            image.url ||
+            image.path ||
+            image.src ||
+            image.imageUrl ||
+            "";
+
+        if (!url) {
+            return "";
         }
 
-        return image;
-    }
+        // Already absolute
+        if (
+            url.startsWith("http://") ||
+            url.startsWith("https://") ||
+            url.startsWith("data:")
+        ) {
+            return url;
+        }
 
-    // Object-based image
-    const url =
-        image.secure_url ||
-        image.url ||
-        image.path ||
-        image.src ||
-        image.imageUrl ||
-        "";
+        // Relative backend path
+        if (url.startsWith("/")) {
+            return `${API_BASE.replace(/\/api\/?$/, "")}${url}`;
+        }
 
-    if (!url) {
-        return "";
-    }
-
-    // Already absolute
-    if (
-        url.startsWith("http://") ||
-        url.startsWith("https://") ||
-        url.startsWith("data:")
-    ) {
         return url;
     }
-
-    // Relative backend path
-    if (url.startsWith("/")) {
-        return `${API_BASE.replace(/\/api\/?$/, "")}${url}`;
-    }
-
-    return url;
-}
 
 
     // ========================================================
@@ -727,118 +727,118 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ========================================================
-// CRAFT & STORY / PRODUCT CATALOG
-// ========================================================
+    // CRAFT & STORY / PRODUCT CATALOG
+    // ========================================================
 
-function renderCatalog() {
+    function renderCatalog() {
 
-    const section =
-        document.getElementById("craft-story-section");
+        const section =
+            document.getElementById("craft-story-section");
 
-    if (!section || !currentProduct) {
-        return;
-    }
-
-
-    const catalog =
-        currentProduct.catalog || {};
-
-
-    const fields = [
-
-        {
-            card: "materials-card",
-            element: "catalog-materials",
-            value: catalog.materialsUsed
-        },
-
-        {
-            card: "weaving-card",
-            element: "catalog-weaving",
-            value: catalog.weavingTechnique
-        },
-
-        {
-            card: "making-process-card",
-            element: "catalog-making",
-            value: catalog.makingProcess
-        },
-
-        {
-            card: "time-card",
-            element: "catalog-time",
-            value: catalog.timeRequired
-        },
-
-        {
-            card: "catalog-origin-card",
-            element: "catalog-origin",
-            value: catalog.origin
-        },
-
-        {
-            card: "artisan-card",
-            element: "catalog-artisan",
-            value: catalog.artisanInformation
-        },
-
-        {
-            card: "care-card",
-            element: "catalog-care",
-            value: catalog.careInstructions
-        }
-
-    ];
-
-
-    let hasCatalogData = false;
-
-
-    fields.forEach(field => {
-
-        const card =
-            document.getElementById(field.card);
-
-        const element =
-            document.getElementById(field.element);
-
-
-        if (!card || !element) {
+        if (!section || !currentProduct) {
             return;
         }
 
 
-        const value =
-            typeof field.value === "string"
-                ? field.value.trim()
-                : field.value;
+        const catalog =
+            currentProduct.catalog || {};
 
 
-        if (
-            value !== undefined &&
-            value !== null &&
-            String(value).trim() !== ""
-        ) {
+        const fields = [
 
-            element.textContent =
-                String(value);
+            {
+                card: "materials-card",
+                element: "catalog-materials",
+                value: catalog.materialsUsed
+            },
 
-            card.hidden = false;
+            {
+                card: "weaving-card",
+                element: "catalog-weaving",
+                value: catalog.weavingTechnique
+            },
 
-            hasCatalogData = true;
+            {
+                card: "making-process-card",
+                element: "catalog-making",
+                value: catalog.makingProcess
+            },
 
-        } else {
+            {
+                card: "time-card",
+                element: "catalog-time",
+                value: catalog.timeRequired
+            },
 
-            card.hidden = true;
+            {
+                card: "catalog-origin-card",
+                element: "catalog-origin",
+                value: catalog.origin
+            },
 
-        }
+            {
+                card: "artisan-card",
+                element: "catalog-artisan",
+                value: catalog.artisanInformation
+            },
 
-    });
+            {
+                card: "care-card",
+                element: "catalog-care",
+                value: catalog.careInstructions
+            }
+
+        ];
 
 
-    section.hidden = !hasCatalogData;
+        let hasCatalogData = false;
 
-}
+
+        fields.forEach(field => {
+
+            const card =
+                document.getElementById(field.card);
+
+            const element =
+                document.getElementById(field.element);
+
+
+            if (!card || !element) {
+                return;
+            }
+
+
+            const value =
+                typeof field.value === "string"
+                    ? field.value.trim()
+                    : field.value;
+
+
+            if (
+                value !== undefined &&
+                value !== null &&
+                String(value).trim() !== ""
+            ) {
+
+                element.textContent =
+                    String(value);
+
+                card.hidden = false;
+
+                hasCatalogData = true;
+
+            } else {
+
+                card.hidden = true;
+
+            }
+
+        });
+
+
+        section.hidden = !hasCatalogData;
+
+    }
 
 
     // ========================================================
@@ -846,121 +846,109 @@ function renderCatalog() {
     // ========================================================
 
     function renderMakingSteps() {
+        const grid = document.getElementById("making-grid");
 
-        const grid =
-            document.getElementById(
-                "making-grid"
-            );
-
-
-        const steps =
-            currentProduct.catalog?.makingSteps;
-
+        const steps = currentProduct?.catalog?.makingSteps;
 
         if (
             !grid ||
             !Array.isArray(steps) ||
             !steps.length
         ) {
-
-            makingSection.hidden =
-                true;
-
+            if (makingSection) {
+                makingSection.hidden = true;
+            }
             return;
         }
 
+        makingSection.hidden = false;
 
-        makingSection.hidden =
-            false;
+        grid.innerHTML = steps
+            .slice()
+            .sort(
+                (a, b) =>
+                    Number(a.step || 0) -
+                    Number(b.step || 0)
+            )
+            .map((step, index) => {
 
+                // DIRECT CLOUDINARY URL
+                const image =
+                    step?.image?.url ||
+                    step?.image?.secure_url ||
+                    (typeof step?.image === "string"
+                        ? step.image
+                        : "");
 
-        grid.innerHTML =
-            steps
-                .sort(
-                    (a, b) =>
-                        Number(a.step || 0) -
-                        Number(b.step || 0)
-                )
-                .map(
-                    (step, index) => {
+                console.log(
+                    "Making Step:",
+                    index + 1,
+                    step
+                );
 
-                        const image =
-                            getImageUrl(
-                                step.image
-                            );
+                console.log(
+                    "Making Step Image URL:",
+                    image
+                );
 
+                return `
+                <article class="making-card">
 
-                        return `
-                            <article
-                                class="making-card"
-                            >
+                    <div class="making-image">
 
-                                <div
-                                    class="making-image"
-                                >
+                        ${image
+                        ? `
+                                    <img
+                                        src="${escapeHTML(image)}"
+                                        alt="${escapeHTML(
+                            step.title ||
+                            "Making process"
+                        )}"
+                                        loading="lazy"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                    >
 
-                                    ${image
-                                ? `
-                                                <img
-                                                    src="${escapeHTML(image)}"
-                                                    alt="${escapeHTML(
-                                    step.title ||
-                                    "Making process"
-                                )}"
-                                                    loading="lazy"
-                                                >
-                                              `
-                                : `
-                                                <div class="making-image-placeholder">
-                                                    ${String(
-                                    index + 1
-                                ).padStart(
-                                    2,
-                                    "0"
-                                )}
-                                                </div>
-                                              `
-                            }
-
-                                    <span class="making-number">
-                                        ${String(
-                                index + 1
-                            ).padStart(
-                                2,
-                                "0"
-                            )}
-                                    </span>
-
-                                </div>
-
-
-                                <div
-                                    class="making-content"
-                                >
-
-                                    <h3>
-                                        ${escapeHTML(
-                                step.title ||
-                                "The Craft"
-                            )}
-                                    </h3>
-
-                                    <p>
-                                        ${escapeHTML(
-                                step.description ||
-                                ""
-                            )}
-                                    </p>
-
-                                </div>
-
-                            </article>
-                        `;
-
+                                    <div
+                                        class="making-image-placeholder"
+                                        style="display:none;"
+                                    >
+                                        ${String(index + 1).padStart(2, "0")}
+                                    </div>
+                                  `
+                        : `
+                                    <div class="making-image-placeholder">
+                                        ${String(index + 1).padStart(2, "0")}
+                                    </div>
+                                  `
                     }
-                )
-                .join("");
 
+                        <span class="making-number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </span>
+
+                    </div>
+
+                    <div class="making-content">
+
+                        <h3>
+                            ${escapeHTML(
+                        step.title ||
+                        "The Craft"
+                    )}
+                        </h3>
+
+                        <p>
+                            ${escapeHTML(
+                        step.description || ""
+                    )}
+                        </p>
+
+                    </div>
+
+                </article>
+            `;
+            })
+            .join("");
     }
 
 
