@@ -392,114 +392,146 @@
     // RENDER PRODUCTS
     // =========================================================
 
-    function renderProducts(
+    function renderProducts(products) {
+
+    grid.innerHTML =
         products
-    ) {
+            .map(product => {
 
-        grid.innerHTML =
-            products
-                .map(product => {
+                const image =
+                    getProductImage(product);
 
-                    const image =
-                        getProductImage(
-                            product
+                const stock =
+                    Number(product.stock) || 0;
+
+                const outOfStock =
+                    stock <= 0;
+
+                const originalPrice =
+                    Number(product.price) || 0;
+
+                const finalPrice =
+                    Number(
+                        product.pricing?.finalPrice ??
+                        originalPrice
+                    );
+
+                const hasDiscount =
+                    finalPrice < originalPrice;
+
+                let discountPercentage = 0;
+
+                if (hasDiscount && originalPrice > 0) {
+                    discountPercentage =
+                        Math.round(
+                            ((originalPrice - finalPrice) /
+                                originalPrice) * 100
                         );
+                }
 
+                return `
+                    <article
+                        class="product-card"
+                        data-product-id="${escapeHTML(
+                            product._id || ""
+                        )}"
+                    >
 
-                    const stock =
-                        Number(
-                            product.stock
-                        ) || 0;
+                        <div class="img-wrapper">
 
+                            <img
+                                class="product-img"
+                                src="${escapeHTML(image)}"
+                                alt="${escapeHTML(
+                                    product.name ||
+                                    "Handloom Product"
+                                )}"
+                                loading="lazy"
+                            >
 
-                    const outOfStock =
-                        stock <= 0;
+                            ${
+                                product.featured
+                                    ? `
+                                        <span class="product-badge">
+                                            FEATURED
+                                        </span>
+                                    `
+                                    : ""
+                            }
 
-
-                    return `
-                        <article
-                            class="product-card"
-                            data-product-id="${escapeHTML(
-                                product._id || ""
-                            )}"
-                        >
-
-                            <div class="img-wrapper">
-
-                                <img
-                                    class="product-img"
-                                    src="${escapeHTML(
-                                        image
-                                    )}"
-                                    alt="${escapeHTML(
-                                        product.name ||
-                                        "Handloom Product"
-                                    )}"
-                                    loading="lazy"
-                                >
-
-
+                            <button
+                                type="button"
+                                class="quick-add"
+                                data-category-add-product="${escapeHTML(
+                                    product._id || ""
+                                )}"
                                 ${
-                                    product.featured
-                                        ? `
-                                            <span class="product-badge">
-                                                FEATURED
-                                            </span>
-                                        `
+                                    outOfStock
+                                        ? "disabled"
                                         : ""
                                 }
+                            >
+                                ${
+                                    outOfStock
+                                        ? "SOLD OUT"
+                                        : "ADD TO BAG"
+                                }
+                            </button>
 
+                        </div>
 
-                                <button
-                                    type="button"
-                                    class="quick-add"
-                                    data-category-add-product="${escapeHTML(
-                                        product._id || ""
-                                    )}"
-                                    ${
-                                        outOfStock
-                                            ? "disabled"
-                                            : ""
-                                    }
-                                >
-                                    ${
-                                        outOfStock
-                                            ? "SOLD OUT"
-                                            : "ADD TO BAG"
-                                    }
-                                </button>
+                        <div class="product-info">
+
+                            <h3>
+                                ${escapeHTML(
+                                    product.name ||
+                                    "Untitled Product"
+                                )}
+                            </h3>
+
+                            <div class="price">
+
+                                ${
+                                    hasDiscount
+                                        ? `
+                                            <span class="original-price">
+                                                ${formatPrice(
+                                                    originalPrice
+                                                )}
+                                            </span>
+
+                                            <span class="sale-price">
+                                                ${formatPrice(
+                                                    finalPrice
+                                                )}
+                                            </span>
+
+                                            <span class="offer-label">
+                                                ${discountPercentage}% OFF
+                                            </span>
+                                        `
+                                        : `
+                                            <span class="regular-price">
+                                                ${formatPrice(
+                                                    originalPrice
+                                                )}
+                                            </span>
+                                        `
+                                }
 
                             </div>
 
+                        </div>
 
-                            <div class="product-info">
+                    </article>
+                `;
 
-                                <h3>
-                                    ${escapeHTML(
-                                        product.name ||
-                                        "Untitled Product"
-                                    )}
-                                </h3>
+            })
+            .join("");
 
+    bindAddButtons();
 
-                                <p class="price">
-                                    ${formatPrice(
-                                        product.price
-                                    )}
-                                </p>
-
-                            </div>
-
-                        </article>
-                    `;
-
-                })
-                .join("");
-
-
-        bindAddButtons();
-
-    }
+}
 
 
     // =========================================================
