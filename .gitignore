@@ -1,0 +1,3 @@
+echo "admin/" >> .gitignore
+echo "backend/" >> .gitignore
+echo ".DS_Store" >> .gitignore
