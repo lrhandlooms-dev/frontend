@@ -2255,3 +2255,39 @@ body {
 .product-card:hover .product-img {
   transform: none !important;
 }
+
+/* ==========================================
+   PRODUCT OFFER PRICE
+========================================== */
+
+.product-info .price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-info .original-price {
+  position: relative;
+  color: #a99f91;
+  font-size: 0.95em;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #8f8578;
+  white-space: nowrap;
+}
+
+.product-info .sale-price {
+  color: #b58b4c;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.product-info .offer-label {
+  font-size: 0.65em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a67c3d;
+  white-space: nowrap;
+}
