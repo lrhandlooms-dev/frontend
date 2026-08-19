@@ -99,57 +99,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ==========================================================
-// PROCEED TO CHECKOUT
-// ==========================================================
+  // PROCEED TO CHECKOUT
+  // ==========================================================
 
-const checkoutBtn =
+  const checkoutBtn =
     document.getElementById("checkout-btn");
 
-if (checkoutBtn) {
+  if (checkoutBtn) {
 
     checkoutBtn.addEventListener(
-        "click",
-        () => {
+      "click",
+      () => {
 
-            const cart =
-                JSON.parse(
-                    localStorage.getItem(
-                        "lr_handlooms_cart"
-                    ) || "[]"
-                );
+        const cart =
+          JSON.parse(
+            localStorage.getItem(
+              "lr_handlooms_cart"
+            ) || "[]"
+          );
 
-            // Empty bag
-            if (!cart.length) {
+        // Empty bag
+        if (!cart.length) {
 
-                alert(
-                    "Your shopping bag is empty."
-                );
+          alert(
+            "Your shopping bag is empty."
+          );
 
-                return;
-            }
-
-            // Check login
-            const token =
-                localStorage.getItem(
-                    "lr_handlooms_user_token"
-                );
-
-            if (!token) {
-
-                window.location.href =
-                    "./account.html";
-
-                return;
-            }
-
-            // Go to checkout
-            window.location.href =
-                "./checkout.html";
-
+          return;
         }
+
+        // Check login
+        const token =
+          localStorage.getItem(
+            "lr_handlooms_user_token"
+          );
+
+        if (!token) {
+
+          window.location.href =
+            "./account.html";
+
+          return;
+        }
+
+        // Go to checkout
+        window.location.href =
+          "./checkout.html";
+
+      }
     );
 
-}
+  }
 
 
   // OPEN CART
@@ -422,28 +422,28 @@ if (checkoutBtn) {
 
 
   function openBridalModal() {
-  if (!modal) return;
+    if (!modal) return;
 
-  // Force modal to be the last child of body
-  // This prevents any layout/stacking issue.
-  document.body.appendChild(modal);
+    // Force modal to be the last child of body
+    // This prevents any layout/stacking issue.
+    document.body.appendChild(modal);
 
-  // Force the modal to viewport center
-  modal.style.position = "fixed";
-  modal.style.left = "0";
-  modal.style.top = "0";
-  modal.style.right = "0";
-  modal.style.bottom = "0";
-  modal.style.width = "100vw";
-  modal.style.height = "100vh";
-  modal.style.display = "flex";
-  modal.style.alignItems = "center";
-  modal.style.justifyContent = "center";
+    // Force the modal to viewport center
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.right = "0";
+    modal.style.bottom = "0";
+    modal.style.width = "100vw";
+    modal.style.height = "100vh";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
 
-  modal.classList.add("active");
+    modal.classList.add("active");
 
-  document.body.style.overflow = "hidden";
-}
+    document.body.style.overflow = "hidden";
+  }
 
   // CLOSE MODAL
   function closeBridalModal() {
@@ -1610,35 +1610,60 @@ document.addEventListener(
   function renderProducts(products) {
 
     const grid =
-      document.getElementById(
-        "productGrid"
-      );
+      document.getElementById("productGrid");
 
     if (!grid) return;
 
-
     grid.innerHTML =
-      products
-        .map((product) => {
+      products.map((product) => {
 
-          const image =
-            getProductImage(product);
+        const image =
+          getProductImage(product);
 
-          const price =
-            Number(product.price) || 0;
+        // ======================================================
+        // OFFER / PRICING
+        // Backend already sends calculated pricing
+        // ======================================================
 
-          const stock =
-            Number(product.stock) || 0;
+        const pricing =
+          product?.pricing || {};
 
-          const outOfStock =
-            stock <= 0;
+        const originalPrice =
+          Number(
+            pricing.originalPrice ??
+            product.price ??
+            0
+          );
 
-          return `
+        const finalPrice =
+          Number(
+            pricing.finalPrice ??
+            product.price ??
+            0
+          );
+
+        const offerActive =
+          pricing.offerActive === true &&
+          finalPrice < originalPrice;
+
+        const discountPercentage =
+          Number(
+            pricing.discountPercentage || 0
+          );
+
+        const stock =
+          Number(product.stock) || 0;
+
+        const outOfStock =
+          stock <= 0;
+
+
+        return `
         <article
           class="product-card"
           data-product-id="${escapeHTML(
-            product._id || ""
-          )}"
+          product._id || ""
+        )}"
         >
 
           <div class="img-wrapper">
@@ -1647,9 +1672,9 @@ document.addEventListener(
               class="product-img"
               src="${escapeHTML(image)}"
               alt="${escapeHTML(
-            product.name ||
-            "Handloom Product"
-          )}"
+          product.name ||
+          "Handloom Product"
+        )}"
               loading="lazy"
               onerror="
                 this.onerror=null;
@@ -1657,27 +1682,39 @@ document.addEventListener(
               "
             >
 
+
+            ${offerActive
+            ? `
+                  <span class="product-badge offer-badge">
+                    ${discountPercentage}% OFF
+                  </span>
+                `
+            : ""
+          }
+
+
             ${product.featured
-              ? `
+            ? `
                   <span class="product-badge">
                     FEATURED
                   </span>
                 `
-              : ""
-            }
+            : ""
+          }
+
 
             <button
               type="button"
               class="quick-add"
               data-add-product="${escapeHTML(
-              product._id || ""
-            )}"
+            product._id || ""
+          )}"
               ${outOfStock ? "disabled" : ""}
             >
               ${outOfStock
-              ? "SOLD OUT"
-              : "ADD TO BAG"
-            }
+            ? "SOLD OUT"
+            : "ADD TO BAG"
+          }
             </button>
 
           </div>
@@ -1687,13 +1724,29 @@ document.addEventListener(
 
             <h3>
               ${escapeHTML(
-              product.name ||
-              "Untitled Product"
-            )}
+            product.name ||
+            "Untitled Product"
+          )}
             </h3>
 
+
             <div class="price">
-              ${formatPrice(price)}
+
+              ${offerActive
+            ? `
+                    <span class="original-price">
+                      ${formatPrice(originalPrice)}
+                    </span>
+
+                    <span class="sale-price">
+                      ${formatPrice(finalPrice)}
+                    </span>
+                  `
+            : `
+                    ${formatPrice(originalPrice)}
+                  `
+          }
+
             </div>
 
           </div>
@@ -1701,11 +1754,11 @@ document.addEventListener(
         </article>
       `;
 
-        })
-        .join("");
+      }).join("");
 
 
     bindProductButtons();
+
 
     // ==========================================================
     // PRODUCT CARD → PRODUCT DETAIL
@@ -1719,9 +1772,11 @@ document.addEventListener(
 
           card.addEventListener("click", event => {
 
-            // Add to Bag click ko ignore karo
+            // Don't open product page when Add to Bag clicked
             if (
-              event.target.closest("[data-add-product]")
+              event.target.closest(
+                "[data-add-product]"
+              )
             ) {
               return;
             }
@@ -1734,13 +1789,16 @@ document.addEventListener(
             }
 
             window.location.href =
-              `./product.html?id=${encodeURIComponent(productId)}`;
+              `./product.html?id=${encodeURIComponent(
+                productId
+              )}`;
 
           });
 
         });
 
     }
+
 
     bindProductCards();
 
@@ -1806,8 +1864,11 @@ document.addEventListener(
                   "Product",
 
                 price:
-                  Number(product.price) ||
-                  0,
+                  Number(
+                    product?.pricing?.finalPrice ??
+                    product.price ??
+                    0
+                  ),
 
                 imgUrl:
                   getProductImage(product),

@@ -2252,3 +2252,6 @@ body {
         padding: 40px 25px !important;
     }
 }
+.product-card:hover .product-img {
+  transform: none !important;
+}
