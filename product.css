@@ -862,3 +862,299 @@
     }
 
 }
+
+/* ============================================================
+   CRAFT & STORY / PRODUCT CATALOG
+   ============================================================ */
+
+.craft-story-section {
+    margin-top: 150px;
+    padding-top: 110px;
+    padding-bottom: 120px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.craft-story-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+
+/* ------------------------------------------------------------
+   HEADING
+------------------------------------------------------------ */
+
+.craft-story-heading {
+    max-width: 700px;
+    margin-bottom: 75px;
+}
+
+.craft-story-heading > span {
+    display: block;
+    margin-bottom: 18px;
+
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+
+    color: #a0834d;
+}
+
+.craft-story-heading h2 {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(52px, 7vw, 92px);
+    line-height: 0.92;
+    font-weight: 400;
+
+    letter-spacing: -0.025em;
+    color: #151515;
+}
+
+.craft-story-heading h2 em {
+    font-style: italic;
+}
+
+.craft-story-heading p {
+    max-width: 540px;
+
+    margin: 28px 0 0;
+
+    color: #777;
+
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+
+/* ------------------------------------------------------------
+   CATALOG GRID
+------------------------------------------------------------ */
+
+.craft-story-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 0;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+
+/* ------------------------------------------------------------
+   CARD
+------------------------------------------------------------ */
+
+.craft-story-card {
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    gap: 22px;
+
+    min-height: 190px;
+
+    padding: 30px 35px 30px 0;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.35s ease,
+        padding-left 0.35s ease;
+}
+
+.craft-story-card:nth-child(even) {
+    padding-left: 35px;
+
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.craft-story-card:hover {
+    padding-left: 12px;
+}
+
+.craft-story-card:nth-child(even):hover {
+    padding-left: 47px;
+}
+
+
+/* ------------------------------------------------------------
+   WIDE CARDS
+------------------------------------------------------------ */
+
+.craft-story-card.craft-story-wide {
+    grid-column: 1 / -1;
+
+    grid-template-columns: 42px minmax(0, 850px);
+
+    padding-right: 0;
+}
+
+.craft-story-card.craft-story-wide:nth-child(even) {
+    padding-left: 0;
+
+    border-left: 0;
+}
+
+
+/* ------------------------------------------------------------
+   NUMBER
+------------------------------------------------------------ */
+
+.craft-card-number {
+    padding-top: 3px;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    color: #a0834d;
+}
+
+
+/* ------------------------------------------------------------
+   LABEL
+------------------------------------------------------------ */
+
+.craft-card-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 0.22em;
+
+    color: #888;
+}
+
+
+/* ------------------------------------------------------------
+   TEXT
+------------------------------------------------------------ */
+
+.craft-story-card p {
+    margin: 0;
+
+    max-width: 700px;
+
+    color: #333;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 24px;
+
+    line-height: 1.35;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .craft-story-section {
+        margin-top: 90px;
+
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+
+    .craft-story-heading {
+        margin-bottom: 50px;
+    }
+
+
+    .craft-story-heading h2 {
+        font-size: 60px;
+    }
+
+
+    .craft-story-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .craft-story-card,
+    .craft-story-card:nth-child(even),
+    .craft-story-card.craft-story-wide,
+    .craft-story-card.craft-story-wide:nth-child(even) {
+
+        grid-column: 1;
+
+        grid-template-columns: 35px 1fr;
+
+        padding:
+            25px
+            0;
+
+        border-left: 0;
+    }
+
+
+    .craft-story-card:hover,
+    .craft-story-card:nth-child(even):hover {
+
+        padding-left: 8px;
+    }
+
+
+    .craft-story-card p {
+        font-size: 21px;
+    }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 520px) {
+
+    .craft-story-section {
+        margin-top: 70px;
+
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+
+    .craft-story-heading h2 {
+        font-size: 48px;
+    }
+
+
+    .craft-story-heading p {
+        font-size: 11px;
+    }
+
+
+    .craft-story-card p {
+        font-size: 19px;
+
+        line-height: 1.45;
+    }
+
+
+    .craft-card-label {
+        font-size: 7px;
+    }
+
+}

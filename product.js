@@ -452,6 +452,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // ----------------------------------------------------
+        // Craft & Story / Catalog
+        // ----------------------------------------------------
+
+        renderCatalog();
+
+
+        // ----------------------------------------------------
         // Making steps
         // ----------------------------------------------------
 
@@ -588,9 +595,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img
                         src="${escapeHTML(url)}"
                         alt="${escapeHTML(
-                            currentProduct.name ||
-                            "Product image"
-                        )}"
+                    currentProduct.name ||
+                    "Product image"
+                )}"
                         loading="lazy"
                     >
                 `;
@@ -680,6 +687,122 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
+    // ========================================================
+// CRAFT & STORY / PRODUCT CATALOG
+// ========================================================
+
+function renderCatalog() {
+
+    const section =
+        document.getElementById("craft-story-section");
+
+    if (!section || !currentProduct) {
+        return;
+    }
+
+
+    const catalog =
+        currentProduct.catalog || {};
+
+
+    const fields = [
+
+        {
+            card: "materials-card",
+            element: "catalog-materials",
+            value: catalog.materialsUsed
+        },
+
+        {
+            card: "weaving-card",
+            element: "catalog-weaving",
+            value: catalog.weavingTechnique
+        },
+
+        {
+            card: "making-process-card",
+            element: "catalog-making",
+            value: catalog.makingProcess
+        },
+
+        {
+            card: "time-card",
+            element: "catalog-time",
+            value: catalog.timeRequired
+        },
+
+        {
+            card: "catalog-origin-card",
+            element: "catalog-origin",
+            value: catalog.origin
+        },
+
+        {
+            card: "artisan-card",
+            element: "catalog-artisan",
+            value: catalog.artisanInformation
+        },
+
+        {
+            card: "care-card",
+            element: "catalog-care",
+            value: catalog.careInstructions
+        }
+
+    ];
+
+
+    let hasCatalogData = false;
+
+
+    fields.forEach(field => {
+
+        const card =
+            document.getElementById(field.card);
+
+        const element =
+            document.getElementById(field.element);
+
+
+        if (!card || !element) {
+            return;
+        }
+
+
+        const value =
+            typeof field.value === "string"
+                ? field.value.trim()
+                : field.value;
+
+
+        if (
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ) {
+
+            element.textContent =
+                String(value);
+
+            card.hidden = false;
+
+            hasCatalogData = true;
+
+        } else {
+
+            card.hidden = true;
+
+        }
+
+    });
+
+
+    section.hidden = !hasCatalogData;
+
+}
+
+
     // ========================================================
     // MAKING STEPS
     // ========================================================
@@ -738,37 +861,36 @@ document.addEventListener("DOMContentLoaded", () => {
                                     class="making-image"
                                 >
 
-                                    ${
-                                        image
-                                            ? `
+                                    ${image
+                                ? `
                                                 <img
                                                     src="${escapeHTML(image)}"
                                                     alt="${escapeHTML(
-                                                        step.title ||
-                                                        "Making process"
-                                                    )}"
+                                    step.title ||
+                                    "Making process"
+                                )}"
                                                     loading="lazy"
                                                 >
                                               `
-                                            : `
+                                : `
                                                 <div class="making-image-placeholder">
                                                     ${String(
-                                                        index + 1
-                                                    ).padStart(
-                                                        2,
-                                                        "0"
-                                                    )}
+                                    index + 1
+                                ).padStart(
+                                    2,
+                                    "0"
+                                )}
                                                 </div>
                                               `
-                                    }
+                            }
 
                                     <span class="making-number">
                                         ${String(
-                                            index + 1
-                                        ).padStart(
-                                            2,
-                                            "0"
-                                        )}
+                                index + 1
+                            ).padStart(
+                                2,
+                                "0"
+                            )}
                                     </span>
 
                                 </div>
@@ -780,16 +902,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                                     <h3>
                                         ${escapeHTML(
-                                            step.title ||
-                                            "The Craft"
-                                        )}
+                                step.title ||
+                                "The Craft"
+                            )}
                                     </h3>
 
                                     <p>
                                         ${escapeHTML(
-                                            step.description ||
-                                            ""
-                                        )}
+                                step.description ||
+                                ""
+                            )}
                                     </p>
 
                                 </div>
@@ -869,119 +991,115 @@ document.addEventListener("DOMContentLoaded", () => {
     // ADD TO BAG
     // ========================================================
 
-    // ========================================================
-// ADD TO BAG
-// ========================================================
+    addButton?.addEventListener(
+        "click",
+        () => {
 
-addButton?.addEventListener(
-    "click",
-    () => {
+            if (!currentProduct) {
+                return;
+            }
 
-        if (!currentProduct) {
-            return;
+            const stock =
+                Number(
+                    currentProduct.stock || 0
+                );
+
+            if (stock <= 0) {
+                return;
+            }
+
+            const finalPrice =
+                Number(
+                    currentPricing?.finalPrice ??
+                    currentProduct.price ??
+                    0
+                );
+
+            const mainImage =
+                getImageUrl(
+                    currentProduct.images?.find(
+                        image =>
+                            image?.isMain
+                    ) ||
+                    currentProduct.images?.[0]
+                );
+
+
+            // ====================================================
+            // PROPER CART ITEM
+            // ====================================================
+
+            const cartItem = {
+
+                productId:
+                    currentProduct._id,
+
+                name:
+                    currentProduct.name ||
+                    "Handloom Product",
+
+                price:
+                    finalPrice,
+
+                imgUrl:
+                    mainImage,
+
+                quantity:
+                    quantity,
+
+                stock:
+                    stock
+
+            };
+
+
+            // ====================================================
+            // USE GLOBAL CART FUNCTION
+            // ====================================================
+
+            if (
+                typeof window.addProductToCart ===
+                "function"
+            ) {
+
+                window.addProductToCart(
+                    cartItem
+                );
+
+            } else {
+
+                console.error(
+                    "addProductToCart() not found."
+                );
+
+                return;
+            }
+
+
+            // ====================================================
+            // BUTTON FEEDBACK
+            // ====================================================
+
+            addButton.textContent =
+                "ADDED TO BAG ✓";
+
+
+            setTimeout(
+                () => {
+
+                    if (stock > 0) {
+
+                        addButton.textContent =
+                            "ADD TO BAG";
+
+                    }
+
+                },
+                1800
+            );
+
         }
-
-        const stock =
-            Number(
-                currentProduct.stock || 0
-            );
-
-        if (stock <= 0) {
-            return;
-        }
-
-        const finalPrice =
-            Number(
-                currentPricing?.finalPrice ??
-                currentProduct.price ??
-                0
-            );
-
-        const mainImage =
-            getImageUrl(
-                currentProduct.images?.find(
-                    image =>
-                        image?.isMain
-                ) ||
-                currentProduct.images?.[0]
-            );
-
-
-        // ====================================================
-        // PROPER CART ITEM
-        // ====================================================
-
-        const cartItem = {
-
-            productId:
-                currentProduct._id,
-
-            name:
-                currentProduct.name ||
-                "Handloom Product",
-
-            price:
-                finalPrice,
-
-            imgUrl:
-                mainImage,
-
-            quantity:
-                quantity,
-
-            stock:
-                stock
-
-        };
-
-
-        // ====================================================
-        // USE GLOBAL CART FUNCTION
-        // ====================================================
-
-        if (
-            typeof window.addProductToCart ===
-            "function"
-        ) {
-
-            window.addProductToCart(
-                cartItem
-            );
-
-        } else {
-
-            console.error(
-                "addProductToCart() not found."
-            );
-
-            return;
-        }
-
-
-        // ====================================================
-        // BUTTON FEEDBACK
-        // ====================================================
-
-        addButton.textContent =
-            "ADDED TO BAG ✓";
-
-
-        setTimeout(
-            () => {
-
-                if (stock > 0) {
-
-                    addButton.textContent =
-                        "ADD TO BAG";
-
-                }
-
-            },
-            1800
-        );
-
-    }
-);
+    );
 
 
     // ========================================================
