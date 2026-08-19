@@ -507,11 +507,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // Show page
         // ----------------------------------------------------
 
-        loading.hidden = true;
+        if (loading) {
+            loading.hidden = true;
+        }
 
-        errorBox.hidden = true;
+        if (errorBox) {
+            errorBox.hidden = true;
+        }
 
-        productDetail.hidden = false;
+        if (productDetail) {
+            productDetail.hidden = false;
+        }
 
     }
 
