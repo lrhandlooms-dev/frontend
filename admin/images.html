@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Handloom — Image Manager</title>
+
+  <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="./css/images.css" />
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+
+      <div class="brand-mark">H</div>
+
+      <div>
+        <h2>HANDLOOM</h2>
+        <span>ADMIN</span>
+      </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+      <p class="nav-label">MAIN</p>
+
+      <a href="./index.html" class="nav-item">
+        <span>⌂</span>
+        Dashboard
+      </a>
+
+      <a href="./products.html" class="nav-item">
+        <span>◈</span>
+        Products
+      </a>
+
+      <a href="./categories.html" class="nav-item">
+        <span>▦</span>
+        Categories
+      </a>
+
+      <a href="./inventory.html" class="nav-item">
+        <span>□</span>
+        Inventory
+      </a>
+
+
+      <p class="nav-label">MANAGEMENT</p>
+
+      <a href="./offers.html" class="nav-item">
+        <span>%</span>
+        Offers
+      </a>
+
+      <a href="./catalog.html" class="nav-item">
+        <span>✦</span>
+        Catalog
+      </a>
+
+      <a href="./images.html" class="nav-item active">
+        <span>▧</span>
+        Images
+      </a>
+
+      <a href="./enquiries.html" class="nav-item">
+        <span>✉</span>
+        Enquiries
+      </a>
+
+      <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <button
+        id="logoutBtn"
+        class="logout-btn"
+      >
+        <span>↪</span>
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <div>
+
+        <p class="eyebrow">
+          MEDIA LIBRARY
+        </p>
+
+        <h1>
+          Image Manager
+        </h1>
+
+      </div>
+
+
+      <div class="admin-profile">
+
+        <div class="profile-avatar">
+          A
+        </div>
+
+        <div>
+
+          <strong id="adminName">
+            Admin
+          </strong>
+
+          <span id="adminEmail">
+            admin@example.com
+          </span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+
+    <section class="image-manager-content">
+
+
+      <!-- STATS -->
+
+      <div class="image-stats">
+
+
+        <div class="image-stat">
+
+          <div class="image-stat-icon">
+            ◈
+          </div>
+
+          <div>
+
+            <span>
+              Total Images
+            </span>
+
+            <strong id="totalImages">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="image-stat">
+
+          <div class="image-stat-icon">
+            ◉
+          </div>
+
+          <div>
+
+            <span>
+              Products
+            </span>
+
+            <strong id="productImages">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="image-stat">
+
+          <div class="image-stat-icon">
+            ▦
+          </div>
+
+          <div>
+
+            <span>
+              Categories
+            </span>
+
+            <strong id="categoryImages">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="image-stat">
+
+          <div class="image-stat-icon">
+            ✦
+          </div>
+
+          <div>
+
+            <span>
+              Making Steps
+            </span>
+
+            <strong id="makingStepImages">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOOLBAR -->
+
+      <div class="image-toolbar panel">
+
+
+        <div class="image-filters">
+
+          <button
+            class="image-filter active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="image-filter"
+            data-filter="products"
+          >
+            Products
+          </button>
+
+          <button
+            class="image-filter"
+            data-filter="categories"
+          >
+            Categories
+          </button>
+
+          <button
+            class="image-filter"
+            data-filter="making-steps"
+          >
+            Making Steps
+          </button>
+
+        </div>
+
+
+        <div class="image-tools">
+
+          <div class="image-search">
+
+            <span>
+              ⌕
+            </span>
+
+            <input
+              type="search"
+              id="imageSearch"
+              placeholder="Search images..."
+            />
+
+          </div>
+
+
+          <button
+            id="uploadImageBtn"
+            class="upload-btn"
+          >
+            + Upload Image
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESULT HEADER -->
+
+      <div class="image-result-header">
+
+        <div>
+
+          <span class="panel-eyebrow">
+            LIBRARY
+          </span>
+
+          <h2>
+            Your Images
+          </h2>
+
+        </div>
+
+
+        <span id="imageCountLabel">
+          0 images
+        </span>
+
+      </div>
+
+
+      <!-- IMAGE GRID -->
+
+      <div
+        id="imageGrid"
+        class="image-grid"
+      >
+
+        <div class="image-loading">
+
+          <div class="loading-spinner"></div>
+
+          <span>
+            Loading image library...
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- ==========================================
+     UPLOAD MODAL
+========================================== -->
+
+<div
+  id="uploadModal"
+  class="image-modal"
+>
+
+  <div class="image-modal-card">
+
+
+    <div class="image-modal-header">
+
+      <div>
+
+        <span class="panel-eyebrow">
+          MEDIA
+        </span>
+
+        <h2>
+          Upload Image
+        </h2>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="closeUploadModal"
+        class="modal-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="uploadForm">
+
+
+      <!-- TYPE -->
+
+      <div class="upload-field">
+
+        <label>
+          Image Type
+        </label>
+
+        <select id="uploadType">
+
+          <option value="products">
+            Product
+          </option>
+
+          <option value="categories">
+            Category
+          </option>
+
+          <option value="making-steps">
+            Making Step
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- FILE -->
+
+      <div class="upload-field">
+
+        <label>
+          Select Image
+        </label>
+
+        <label
+          for="imageFile"
+          class="drop-zone"
+          id="dropZone"
+        >
+
+          <div class="drop-icon">
+            ↑
+          </div>
+
+          <strong>
+            Choose an image
+          </strong>
+
+          <span>
+            JPG, PNG, WEBP • Max 20MB
+          </span>
+
+          <input
+            type="file"
+            id="imageFile"
+            accept="image/*"
+            hidden
+          />
+
+        </label>
+
+      </div>
+
+
+      <!-- PREVIEW -->
+
+      <div
+        id="uploadPreview"
+        class="upload-preview hidden"
+      >
+
+        <img
+          id="uploadPreviewImage"
+          src=""
+          alt="Preview"
+        />
+
+        <div>
+
+          <strong id="uploadFileName">
+            —
+          </strong>
+
+          <span id="uploadFileSize">
+            —
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- MESSAGE -->
+
+      <div
+        id="uploadMessage"
+        class="upload-message"
+      ></div>
+
+
+      <!-- ACTIONS -->
+
+      <div class="upload-actions">
+
+        <button
+          type="button"
+          id="cancelUploadBtn"
+          class="secondary-btn"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          id="uploadSubmitBtn"
+          class="upload-submit-btn"
+        >
+          Upload Image
+        </button>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ==========================================
+     IMAGE PREVIEW MODAL
+========================================== -->
+
+<div
+  id="previewModal"
+  class="image-modal preview-modal"
+>
+
+  <div class="preview-card">
+
+    <button
+      type="button"
+      id="closePreviewModal"
+      class="preview-close"
+    >
+      ×
+    </button>
+
+
+    <div class="preview-image-wrapper">
+
+      <img
+        id="fullPreviewImage"
+        src=""
+        alt="Full preview"
+      />
+
+    </div>
+
+
+    <div class="preview-details">
+
+      <div class="preview-main-info">
+
+        <span id="previewType">
+          —
+        </span>
+
+        <h2 id="previewPublicId">
+          —
+        </h2>
+
+      </div>
+
+
+      <div class="preview-meta">
+
+        <div>
+
+          <span>
+            DIMENSIONS
+          </span>
+
+          <strong id="previewDimensions">
+            —
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            FORMAT
+          </span>
+
+          <strong id="previewFormat">
+            —
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            SIZE
+          </span>
+
+          <strong id="previewSize">
+            —
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="preview-url">
+
+        <span>
+          IMAGE URL
+        </span>
+
+        <div>
+
+          <input
+            id="previewUrl"
+            type="text"
+            readonly
+          />
+
+          <button
+            id="copyUrlBtn"
+            type="button"
+          >
+            Copy
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="deletePreviewBtn"
+        class="preview-delete"
+        type="button"
+      >
+        Delete Image
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="./js/images.js"></script>
+
+</body>
+</html>

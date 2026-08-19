@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Handloom — Offers</title>
+
+  <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="./css/offers.css" />
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-brand">
+        <div class="brand-mark">H</div>
+
+        <div>
+          <h2>HANDLOOM</h2>
+          <span>ADMIN</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <p class="nav-label">MAIN</p>
+
+        <a href="./index.html" class="nav-item">
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+        <a href="./products.html" class="nav-item">
+          <span>◈</span>
+          Products
+        </a>
+
+        <a href="./categories.html" class="nav-item">
+          <span>▦</span>
+          Categories
+        </a>
+
+        <a href="./inventory.html" class="nav-item">
+          <span>□</span>
+          Inventory
+        </a>
+
+        <p class="nav-label">MANAGEMENT</p>
+
+        <a href="./offers.html" class="nav-item active">
+          <span>%</span>
+          Offers
+        </a>
+
+        <a href="./catalog.html" class="nav-item">
+          <span>✦</span>
+          Catalog
+        </a>
+
+        <a href="./images.html" class="nav-item">
+          <span>▧</span>
+          Images
+        </a>
+
+        <a href="./enquiries.html" class="nav-item">
+          <span>✉</span>
+          Enquiries
+        </a>
+
+        <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button id="logoutBtn" class="logout-btn">
+          <span>↪</span>
+          Logout
+        </button>
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+
+        <div>
+          <p class="eyebrow">SALES & PROMOTIONS</p>
+          <h1>Offers</h1>
+        </div>
+
+        <div class="admin-profile">
+
+          <div class="profile-avatar">
+            A
+          </div>
+
+          <div>
+            <strong id="adminName">Admin</strong>
+            <span id="adminEmail">admin@example.com</span>
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <section class="dashboard-content">
+
+
+        <!-- STATS -->
+        <div class="offer-stats">
+
+          <div class="offer-stat">
+            <span class="stat-label">ACTIVE OFFERS</span>
+            <strong id="activeCount">0</strong>
+            <small>Currently running</small>
+          </div>
+
+          <div class="offer-stat">
+            <span class="stat-label">SCHEDULED</span>
+            <strong id="scheduledCount">0</strong>
+            <small>Starting soon</small>
+          </div>
+
+          <div class="offer-stat">
+            <span class="stat-label">EXPIRED</span>
+            <strong id="expiredCount">0</strong>
+            <small>Past promotions</small>
+          </div>
+
+          <div class="offer-stat">
+            <span class="stat-label">TOTAL PRODUCTS</span>
+            <strong id="productCount">0</strong>
+            <small>Products in catalog</small>
+          </div>
+
+        </div>
+
+
+        <!-- TOOLBAR -->
+        <div class="offer-toolbar">
+
+          <div class="offer-search-wrap">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search products..."
+            />
+
+          </div>
+
+
+          <select id="statusFilter">
+
+            <option value="all">
+              All Products
+            </option>
+
+            <option value="active">
+              Active Offers
+            </option>
+
+            <option value="scheduled">
+              Scheduled
+            </option>
+
+            <option value="expired">
+              Expired
+            </option>
+
+            <option value="none">
+              No Offer
+            </option>
+
+          </select>
+
+
+          <select id="sortFilter">
+
+            <option value="newest">
+              Newest
+            </option>
+
+            <option value="oldest">
+              Oldest
+            </option>
+
+            <option value="price_high">
+              Highest Price
+            </option>
+
+            <option value="price_low">
+              Lowest Price
+            </option>
+
+            <option value="discount_high">
+              Highest Discount
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- PANEL -->
+        <div class="panel offers-panel">
+
+          <div class="panel-header">
+
+            <div>
+              <span class="panel-eyebrow">
+                PROMOTIONS
+              </span>
+
+              <h2>Product Offers</h2>
+            </div>
+
+            <span id="resultCount" class="result-count">
+              0 products
+            </span>
+
+          </div>
+
+
+          <div id="offersGrid" class="offers-grid">
+
+            <div class="offers-loading">
+              <div class="loading-spinner"></div>
+              <span>Loading offers...</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- OFFER MODAL -->
+
+  <div id="offerModal" class="offer-modal">
+
+    <div class="offer-modal-card">
+
+      <div class="offer-modal-head">
+
+        <div>
+
+          <span class="panel-eyebrow">
+            PROMOTION
+          </span>
+
+          <h2 id="modalTitle">
+            Edit Offer
+          </h2>
+
+          <p id="modalProductName">
+            Product
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          id="closeModal"
+          class="modal-close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- PRICE PREVIEW -->
+
+      <div class="price-preview">
+
+        <div>
+          <span>ORIGINAL PRICE</span>
+          <strong id="originalPrice">₹0</strong>
+        </div>
+
+        <div class="price-arrow">
+          →
+        </div>
+
+        <div class="sale-price">
+          <span>SALE PRICE</span>
+          <strong id="salePrice">₹0</strong>
+        </div>
+
+      </div>
+
+
+      <form id="offerForm">
+
+
+        <div class="offer-enable-row">
+
+          <div>
+            <strong>Enable Offer</strong>
+            <span>Show this promotion on the website</span>
+          </div>
+
+          <label class="switch">
+
+            <input
+              type="checkbox"
+              id="offerEnabled"
+            />
+
+            <span class="switch-slider"></span>
+
+          </label>
+
+        </div>
+
+
+        <div id="offerFields" class="offer-fields">
+
+
+          <div class="form-group">
+
+            <label>
+              Discount Type
+            </label>
+
+            <div class="discount-type">
+
+              <button
+                type="button"
+                class="type-btn active"
+                data-type="percentage"
+              >
+                Percentage
+              </button>
+
+              <button
+                type="button"
+                class="type-btn"
+                data-type="fixed"
+              >
+                Fixed Amount
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="offerValue">
+              Discount Value
+            </label>
+
+            <div class="value-input">
+
+              <input
+                type="number"
+                id="offerValue"
+                min="0"
+                step="0.01"
+                value="0"
+              />
+
+              <span id="valueSuffix">%</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="date-grid">
+
+            <div class="form-group">
+
+              <label for="offerStart">
+                Start Date
+              </label>
+
+              <input
+                type="datetime-local"
+                id="offerStart"
+              />
+
+            </div>
+
+            <div class="form-group">
+
+              <label for="offerEnd">
+                End Date
+              </label>
+
+              <input
+                type="datetime-local"
+                id="offerEnd"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div id="offerMessage" class="offer-message"></div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            id="removeOfferBtn"
+            class="danger-btn"
+          >
+            Remove Offer
+          </button>
+
+          <div class="modal-right-actions">
+
+            <button
+              type="button"
+              id="cancelBtn"
+              class="secondary-btn"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="submit"
+              id="saveOfferBtn"
+              class="primary-btn"
+            >
+              Save Offer
+            </button>
+
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <script src="./js/offers.js"></script>
+
+</body>
+</html>

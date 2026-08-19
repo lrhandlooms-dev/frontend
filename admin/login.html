@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Handloom — Admin Login</title>
+
+  <link rel="stylesheet" href="./css/admin.css" />
+</head>
+
+<body class="login-page">
+
+  <div class="login-wrapper">
+
+    <div class="login-brand">
+      <div class="brand-mark">H</div>
+
+      <div>
+        <h1>HANDLOOM</h1>
+        <p>ADMINISTRATION</p>
+      </div>
+    </div>
+
+    <div class="login-card">
+
+      <div class="login-heading">
+        <span>WELCOME BACK</span>
+        <h2>Admin Login</h2>
+        <p>Sign in to manage your handloom collection.</p>
+      </div>
+
+      <form id="loginForm">
+
+        <div class="input-group">
+          <label for="email">Email</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="admin@example.com"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="login-btn">
+          <span>LOGIN</span>
+          <span>→</span>
+        </button>
+
+        <div id="loginMessage" class="login-message"></div>
+
+      </form>
+
+    </div>
+
+    <p class="login-footer">
+      Handloom Administration Panel
+    </p>
+
+  </div>
+
+  <script src="./js/app.js"></script>
+
+</body>
+</html>

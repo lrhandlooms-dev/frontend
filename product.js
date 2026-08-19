@@ -124,20 +124,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getImageUrl(image) {
 
-        if (!image) {
-            return "";
-        }
+    if (!image) {
+        return "";
+    }
 
-        if (typeof image === "string") {
+    // If image is already a URL string
+    if (typeof image === "string") {
+
+        if (
+            image.startsWith("http://") ||
+            image.startsWith("https://") ||
+            image.startsWith("data:")
+        ) {
             return image;
         }
 
-        return (
-            image.url ||
-            image.secure_url ||
-            ""
-        );
+        // Relative backend path
+        if (image.startsWith("/")) {
+            return `${API_BASE.replace(/\/api\/?$/, "")}${image}`;
+        }
+
+        return image;
     }
+
+    // Object-based image
+    const url =
+        image.secure_url ||
+        image.url ||
+        image.path ||
+        image.src ||
+        image.imageUrl ||
+        "";
+
+    if (!url) {
+        return "";
+    }
+
+    // Already absolute
+    if (
+        url.startsWith("http://") ||
+        url.startsWith("https://") ||
+        url.startsWith("data:")
+    ) {
+        return url;
+    }
+
+    // Relative backend path
+    if (url.startsWith("/")) {
+        return `${API_BASE.replace(/\/api\/?$/, "")}${url}`;
+    }
+
+    return url;
+}
 
 
     // ========================================================

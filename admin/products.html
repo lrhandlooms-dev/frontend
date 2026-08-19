@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Handloom — Products</title>
+
+  <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="./css/products.css" />
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-brand">
+        <div class="brand-mark">H</div>
+
+        <div>
+          <h2>HANDLOOM</h2>
+          <span>ADMIN</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <p class="nav-label">MAIN</p>
+
+        <a href="./index.html" class="nav-item">
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+        <a href="./products.html" class="nav-item active">
+          <span>◈</span>
+          Products
+        </a>
+
+        <a href="./categories.html" class="nav-item">
+          <span>▦</span>
+          Categories
+        </a>
+
+        <a href="./inventory.html" class="nav-item">
+          <span>□</span>
+          Inventory
+        </a>
+
+        <p class="nav-label">MANAGEMENT</p>
+
+        <a href="./offers.html" class="nav-item">
+          <span>%</span>
+          Offers
+        </a>
+
+        <a href="./catalog.html" class="nav-item">
+          <span>✦</span>
+          Catalog
+        </a>
+
+        <a href="./images.html" class="nav-item">
+          <span>▧</span>
+          Images
+        </a>
+
+        <a href="./enquiries.html" class="nav-item">
+          <span>✉</span>
+          Enquiries
+        </a>
+
+        <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <button id="logoutBtn" class="logout-btn">
+          <span>↪</span>
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+      <header class="topbar">
+
+        <div>
+          <p class="eyebrow">COLLECTION</p>
+          <h1>Products</h1>
+        </div>
+
+        <div class="admin-profile">
+
+          <div class="profile-avatar">
+            A
+          </div>
+
+          <div>
+            <strong id="adminName">Admin</strong>
+            <span id="adminEmail">admin@example.com</span>
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <section class="products-content">
+
+        <!-- HEADER -->
+
+        <div class="products-toolbar">
+
+          <div>
+
+            <p class="products-count">
+              <span id="productsCount">0</span>
+              products
+            </p>
+
+          </div>
+
+          <button
+            id="addProductBtn"
+            class="primary-btn"
+          >
+            <span>+</span>
+            Add New Saree
+          </button>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+          <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search products..."
+            />
+
+          </div>
+
+
+          <select id="categoryFilter">
+
+            <option value="">
+              All Categories
+            </option>
+
+          </select>
+
+
+          <select id="sortFilter">
+
+            <option value="newest">
+              Newest
+            </option>
+
+            <option value="oldest">
+              Oldest
+            </option>
+
+            <option value="price_low">
+              Price: Low to High
+            </option>
+
+            <option value="price_high">
+              Price: High to Low
+            </option>
+
+            <option value="stock_low">
+              Stock: Low to High
+            </option>
+
+            <option value="stock_high">
+              Stock: High to Low
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div
+          id="productsGrid"
+          class="products-grid"
+        >
+
+          <div class="products-loading">
+            Loading products...
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- ADD / EDIT MODAL -->
+
+  <div
+    id="productModal"
+    class="modal-overlay"
+  >
+
+    <div class="product-modal">
+
+      <div class="modal-header">
+
+        <div>
+          <p class="eyebrow">
+            PRODUCT MANAGEMENT
+          </p>
+
+          <h2 id="modalTitle">
+            Add New Saree
+          </h2>
+        </div>
+
+        <button
+          id="closeModalBtn"
+          class="close-btn"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="productForm">
+
+        <!-- BASIC -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Basic Information
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full">
+
+              <label>Product Name *</label>
+
+              <input
+                type="text"
+                id="productName"
+                required
+                placeholder="Traditional Sambalpuri Saree"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Slug *</label>
+
+              <input
+                type="text"
+                id="productSlug"
+                required
+                placeholder="traditional-sambalpuri-saree"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Category *</label>
+
+              <select
+                id="productCategory"
+                required
+              >
+
+                <option value="">
+                  Select Category
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Description</label>
+
+              <textarea
+                id="productDescription"
+                rows="4"
+                placeholder="Describe the saree..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRICE -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Pricing & Stock
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+
+              <label>Price *</label>
+
+              <input
+                type="number"
+                id="productPrice"
+                min="0"
+                required
+                placeholder="4500"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Stock</label>
+
+              <input
+                type="number"
+                id="productStock"
+                min="0"
+                value="0"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Saree Details
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+
+              <label>Fabric</label>
+
+              <input
+                type="text"
+                id="productFabric"
+                placeholder="Cotton"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Length</label>
+
+              <input
+                type="text"
+                id="productLength"
+                placeholder="6.3 meters"
+              />
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Colors</label>
+
+              <input
+                type="text"
+                id="productColors"
+                placeholder="Red, Black, White"
+              />
+
+              <small>
+                Separate colors with commas.
+              </small>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- OFFER -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Offer
+          </div>
+
+          <label class="checkbox-row">
+
+            <input
+              type="checkbox"
+              id="offerEnabled"
+            />
+
+            <span>
+              Enable Offer
+            </span>
+
+          </label>
+
+
+          <div
+            id="offerFields"
+            class="form-grid offer-fields hidden"
+          >
+
+            <div class="form-group">
+
+              <label>Offer Type</label>
+
+              <select id="offerType">
+
+                <option value="percentage">
+                  Percentage
+                </option>
+
+                <option value="fixed">
+                  Fixed Amount
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Value</label>
+
+              <input
+                type="number"
+                id="offerValue"
+                min="0"
+                value="0"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Start Date</label>
+
+              <input
+                type="datetime-local"
+                id="offerStart"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>End Date</label>
+
+              <input
+                type="datetime-local"
+                id="offerEnd"
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- IMAGES -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Product Images
+          </div>
+
+          <input
+            type="file"
+            id="productImages"
+            accept="image/*"
+            multiple
+          />
+
+          <small>
+            You can select multiple images.
+          </small>
+
+
+          <div
+            id="imagePreview"
+            class="image-preview"
+          ></div>
+
+        </div>
+
+
+        <!-- CATALOG -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Catalog / Craft Story
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group full">
+
+              <label>Materials Used</label>
+
+              <textarea
+                id="materialsUsed"
+                rows="3"
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Weaving Technique</label>
+
+              <textarea
+                id="weavingTechnique"
+                rows="3"
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Making Process</label>
+
+              <textarea
+                id="makingProcess"
+                rows="3"
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Time Required</label>
+
+              <input
+                type="text"
+                id="timeRequired"
+                placeholder="10-15 days"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Origin</label>
+
+              <input
+                type="text"
+                id="origin"
+                placeholder="Odisha, India"
+              />
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Artisan Information</label>
+
+              <textarea
+                id="artisanInformation"
+                rows="3"
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>Care Instructions</label>
+
+              <textarea
+                id="careInstructions"
+                rows="3"
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="form-section">
+
+          <div class="section-title">
+            Website Controls
+          </div>
+
+          <div class="toggle-grid">
+
+            <label class="checkbox-row">
+
+              <input
+                type="checkbox"
+                id="productFeatured"
+              />
+
+              <span>
+                Featured Product
+              </span>
+
+            </label>
+
+
+            <label class="checkbox-row">
+
+              <input
+                type="checkbox"
+                id="productActive"
+                checked
+              />
+
+              <span>
+                Active Product
+              </span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- FORM MESSAGE -->
+
+        <div
+          id="formMessage"
+          class="form-message"
+        ></div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            id="cancelBtn"
+            class="secondary-btn"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            id="saveProductBtn"
+            class="primary-btn"
+          >
+            Save Product
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <script src="./js/app.js"></script>
+  <script src="./js/products.js"></script>
+
+</body>
+</html>

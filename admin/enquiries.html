@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Handloom — Enquiries</title>
+
+  <link rel="stylesheet" href="./css/admin.css" />
+  <link rel="stylesheet" href="./css/enquiries.css" />
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+
+      <div class="brand-mark">H</div>
+
+      <div>
+        <h2>HANDLOOM</h2>
+        <span>ADMIN</span>
+      </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+      <p class="nav-label">MAIN</p>
+
+      <a href="./index.html" class="nav-item">
+        <span>⌂</span>
+        Dashboard
+      </a>
+
+      <a href="./products.html" class="nav-item">
+        <span>◈</span>
+        Products
+      </a>
+
+      <a href="./categories.html" class="nav-item">
+        <span>▦</span>
+        Categories
+      </a>
+
+      <a href="./inventory.html" class="nav-item">
+        <span>□</span>
+        Inventory
+      </a>
+
+
+      <p class="nav-label">MANAGEMENT</p>
+
+      <a href="./offers.html" class="nav-item">
+        <span>%</span>
+        Offers
+      </a>
+
+      <a href="./catalog.html" class="nav-item">
+        <span>✦</span>
+        Catalog
+      </a>
+
+      <a href="./images.html" class="nav-item">
+        <span>▧</span>
+        Images
+      </a>
+
+      <a href="./enquiries.html" class="nav-item active">
+        <span>✉</span>
+        Enquiries
+      </a>
+
+      <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <button
+        id="logoutBtn"
+        class="logout-btn"
+      >
+        <span>↪</span>
+        Logout
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+
+  <main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <div>
+
+        <p class="eyebrow">
+          CUSTOMER COMMUNICATION
+        </p>
+
+        <h1>
+          Enquiries
+        </h1>
+
+      </div>
+
+
+      <div class="admin-profile">
+
+        <div class="profile-avatar">
+          A
+        </div>
+
+        <div>
+
+          <strong id="adminName">
+            Admin
+          </strong>
+
+          <span id="adminEmail">
+            admin@example.com
+          </span>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <section class="enquiries-content">
+
+
+      <!-- STATS -->
+
+      <div class="enquiry-stats">
+
+
+        <div class="enquiry-stat">
+
+          <div class="enquiry-stat-icon">
+            ✉
+          </div>
+
+          <div>
+
+            <span>
+              Total Enquiries
+            </span>
+
+            <strong id="totalEnquiries">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="enquiry-stat">
+
+          <div class="enquiry-stat-icon new">
+            !
+          </div>
+
+          <div>
+
+            <span>
+              New
+            </span>
+
+            <strong id="newEnquiries">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="enquiry-stat">
+
+          <div class="enquiry-stat-icon read">
+            ○
+          </div>
+
+          <div>
+
+            <span>
+              Read
+            </span>
+
+            <strong id="readEnquiries">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="enquiry-stat">
+
+          <div class="enquiry-stat-icon replied">
+            ✓
+          </div>
+
+          <div>
+
+            <span>
+              Replied
+            </span>
+
+            <strong id="repliedEnquiries">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOOLBAR -->
+
+      <div class="enquiry-toolbar panel">
+
+
+        <div class="enquiry-tabs">
+
+          <button
+            class="enquiry-tab active"
+            data-status="all"
+          >
+            All
+          </button>
+
+          <button
+            class="enquiry-tab"
+            data-status="new"
+          >
+            New
+          </button>
+
+          <button
+            class="enquiry-tab"
+            data-status="read"
+          >
+            Read
+          </button>
+
+          <button
+            class="enquiry-tab"
+            data-status="replied"
+          >
+            Replied
+          </button>
+
+        </div>
+
+
+        <div class="enquiry-tools">
+
+          <select id="typeFilter">
+
+            <option value="all">
+              All Types
+            </option>
+
+            <option value="general">
+              General
+            </option>
+
+            <option value="product">
+              Product
+            </option>
+
+            <option value="custom-order">
+              Custom Order
+            </option>
+
+            <option value="wholesale">
+              Wholesale
+            </option>
+
+            <option value="collaboration">
+              Collaboration
+            </option>
+
+          </select>
+
+
+          <div class="enquiry-search">
+
+            <span>
+              ⌕
+            </span>
+
+            <input
+              type="search"
+              id="enquirySearch"
+              placeholder="Search enquiries..."
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESULT HEADER -->
+
+      <div class="enquiry-result-header">
+
+        <div>
+
+          <span class="panel-eyebrow">
+            INBOX
+          </span>
+
+          <h2>
+            Customer Enquiries
+          </h2>
+
+        </div>
+
+
+        <span id="enquiryCountLabel">
+          0 enquiries
+        </span>
+
+      </div>
+
+
+      <!-- INBOX -->
+
+      <div
+        id="enquiryList"
+        class="enquiry-list"
+      >
+
+        <div class="enquiry-loading">
+
+          <div class="loading-spinner"></div>
+
+          <span>
+            Loading enquiries...
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- ==========================================
+     ENQUIRY DETAIL MODAL
+========================================== -->
+
+<div
+  id="enquiryModal"
+  class="enquiry-modal"
+>
+
+  <div class="enquiry-modal-card">
+
+
+    <div class="enquiry-modal-header">
+
+      <div>
+
+        <span class="panel-eyebrow">
+          CUSTOMER ENQUIRY
+        </span>
+
+        <h2 id="modalSubject">
+          Enquiry
+        </h2>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="closeEnquiryModal"
+        class="modal-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- CUSTOMER -->
+
+    <div class="customer-block">
+
+      <div class="customer-avatar">
+        <span id="customerInitial">
+          A
+        </span>
+      </div>
+
+
+      <div class="customer-info">
+
+        <strong id="customerName">
+          —
+        </strong>
+
+        <a
+          id="customerEmail"
+          href="#"
+        >
+          —
+        </a>
+
+        <span id="customerPhone">
+          —
+        </span>
+
+      </div>
+
+
+      <div
+        id="modalStatus"
+        class="enquiry-status"
+      >
+        NEW
+      </div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div class="message-section">
+
+      <div class="message-heading">
+
+        <span>
+          MESSAGE
+        </span>
+
+        <time id="enquiryDate">
+          —
+        </time>
+
+      </div>
+
+
+      <div
+        id="enquiryMessage"
+        class="message-box"
+      >
+        —
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT -->
+
+    <div
+      id="productSection"
+      class="product-section hidden"
+    >
+
+      <span>
+        PRODUCT
+      </span>
+
+      <div class="enquiry-product">
+
+        <img
+          id="enquiryProductImage"
+          src=""
+          alt="Product"
+        />
+
+        <div>
+
+          <strong id="enquiryProductName">
+            —
+          </strong>
+
+          <span id="enquiryProductPrice">
+            —
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- TYPE -->
+
+    <div class="detail-row">
+
+      <span>
+        ENQUIRY TYPE
+      </span>
+
+      <strong id="enquiryType">
+        —
+      </strong>
+
+    </div>
+
+
+    <!-- ADMIN NOTE -->
+
+    <div class="note-section">
+
+      <div class="message-heading">
+
+        <span>
+          INTERNAL NOTE
+        </span>
+
+        <span>
+          Only visible to admin
+        </span>
+
+      </div>
+
+
+      <textarea
+        id="adminNote"
+        rows="4"
+        placeholder="Add a private note..."
+      ></textarea>
+
+
+      <button
+        id="saveNoteBtn"
+        class="save-note-btn"
+      >
+        Save Note
+      </button>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="enquiry-actions">
+
+      <button
+        id="markReadBtn"
+        class="secondary-btn"
+      >
+        Mark as Read
+      </button>
+
+
+      <button
+        id="markRepliedBtn"
+        class="primary-action-btn"
+      >
+        Mark as Replied
+      </button>
+
+
+      <a
+        id="emailCustomerBtn"
+        class="secondary-btn"
+        href="#"
+      >
+        Email Customer
+      </a>
+
+
+      <a
+        id="whatsappCustomerBtn"
+        class="whatsapp-btn"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp
+      </a>
+
+
+      <button
+        id="deleteEnquiryBtn"
+        class="delete-enquiry-btn"
+      >
+        Delete
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="./js/enquiries.js"></script>
+
+</body>
+</html>

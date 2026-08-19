@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Handloom — Admin Dashboard</title>
+
+    <link rel="stylesheet" href="./css/admin.css" />
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-mark">H</div>
+
+                <div>
+                    <h2>HANDLOOM</h2>
+                    <span>ADMIN</span>
+                </div>
+
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-label">MAIN</p>
+
+                <a href="#" class="nav-item active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="./products.html" class="nav-item">
+                    <span>◈</span>
+                    Products
+                </a>
+
+                <a href="./categories.html" class="nav-item">
+                    <span>▦</span>
+                    Categories
+                </a>
+
+                <a href="./inventory.html" class="nav-item">
+                    <span>□</span>
+                    Inventory
+                </a>
+
+                <p class="nav-label">MANAGEMENT</p>
+
+                <a href="./offers.html" class="nav-item">
+                    <span>%</span>
+                    Offers
+                </a>
+
+                <a href="./catalog.html" class="nav-item">
+                    <span>✦</span>
+                    Catalog
+                </a>
+
+                <a href="./images.html" class="nav-item">
+                    <span>▧</span>
+                    Images
+                </a>
+
+                <a href="./enquiries.html" class="nav-item">
+                    <span>✉</span>
+                    Enquiries
+                </a>
+
+                <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="logoutBtn" class="logout-btn">
+                    <span>↪</span>
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">OVERVIEW</p>
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="admin-profile">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div>
+                        <strong id="adminName">Admin</strong>
+                        <span id="adminEmail">admin@example.com</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- DASHBOARD -->
+
+            <section class="dashboard-content">
+
+                <!-- STATS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">◈</div>
+
+                        <div>
+                            <span>Total Products</span>
+                            <strong id="productCount">—</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">▦</div>
+
+                        <div>
+                            <span>Categories</span>
+                            <strong id="categoryCount">—</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">□</div>
+
+                        <div>
+                            <span>Inventory Items</span>
+                            <strong id="inventoryCount">—</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">%</div>
+
+                        <div>
+                            <span>Active Offers</span>
+                            <strong id="offerCount">—</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CONTENT GRID -->
+
+                <div class="content-grid">
+
+                    <!-- RECENT PRODUCTS -->
+
+                    <div class="panel large-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-eyebrow">
+                                    COLLECTION
+                                </span>
+
+                                <h2>Recent Products</h2>
+                            </div>
+
+                            <button class="outline-btn">
+                                View All →
+                            </button>
+
+                        </div>
+
+                        <div id="recentProducts" class="product-list">
+
+                            <div class="loading">
+                                Loading products...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- INVENTORY -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-eyebrow">
+                                    STOCK
+                                </span>
+
+                                <h2>Inventory</h2>
+                            </div>
+
+                        </div>
+
+                        <div id="inventoryStatus">
+
+                            <div class="loading">
+                                Loading inventory...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>

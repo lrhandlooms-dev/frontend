@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Handloom — Categories</title>
+
+  <!-- SAME ADMIN CSS -->
+  <link rel="stylesheet" href="./css/admin.css" />
+
+  <!-- CATEGORY CSS -->
+  <link rel="stylesheet" href="./css/categories.css" />
+</head>
+
+<body>
+
+  <div class="admin-layout">
+
+    <!-- ==========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-brand">
+
+        <div class="brand-mark">H</div>
+
+        <div>
+          <h2>HANDLOOM</h2>
+          <span>ADMIN</span>
+        </div>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <p class="nav-label">MAIN</p>
+
+        <a
+          href="./index.html"
+          class="nav-item"
+        >
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+
+        <a
+          href="./products.html"
+          class="nav-item"
+        >
+          <span>◈</span>
+          Products
+        </a>
+
+
+        <a
+          href="./categories.html"
+          class="nav-item active"
+        >
+          <span>▦</span>
+          Categories
+        </a>
+
+
+        <a
+          href="./inventory.html"
+          class="nav-item"
+        >
+          <span>□</span>
+          Inventory
+        </a>
+
+
+        <p class="nav-label">
+          MANAGEMENT
+        </p>
+
+
+        <a
+          href="./offers.html"
+          class="nav-item"
+        >
+          <span>%</span>
+          Offers
+        </a>
+
+
+        <a
+          href="./catalog.html"
+          class="nav-item"
+        >
+          <span>✦</span>
+          Catalog
+        </a>
+
+
+        <a
+          href="./images.html"
+          class="nav-item"
+        >
+          <span>▧</span>
+          Images
+        </a>
+
+
+        <a
+          href="./enquiries.html"
+          class="nav-item"
+        >
+          <span>✉</span>
+          Enquiries
+        </a>
+
+        <a href="./orders.html" class="nav-item">
+                    <span>▤</span>
+                    Orders
+                </a>
+
+      </nav>
+
+
+      <!-- LOGOUT -->
+
+      <div class="sidebar-bottom">
+
+        <button
+          id="logoutBtn"
+          class="logout-btn"
+        >
+          <span>↪</span>
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+      <!-- TOP BAR -->
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            COLLECTION
+          </p>
+
+          <h1>
+            Categories
+          </h1>
+
+        </div>
+
+
+        <div class="admin-profile">
+
+          <div class="profile-avatar">
+            A
+          </div>
+
+          <div>
+
+            <strong id="adminName">
+              Admin
+            </strong>
+
+            <span id="adminEmail">
+              admin@example.com
+            </span>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ==========================================
+           CATEGORY CONTENT
+      ========================================== -->
+
+      <section class="dashboard-content">
+
+
+        <!-- STATS -->
+
+        <div class="stats-grid">
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              ▦
+            </div>
+
+            <div>
+
+              <span>
+                Total Categories
+              </span>
+
+              <strong
+                id="totalCategories"
+              >
+                0
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <span>
+                Active
+              </span>
+
+              <strong
+                id="activeCategories"
+              >
+                0
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              ×
+            </div>
+
+            <div>
+
+              <span>
+                Inactive
+              </span>
+
+              <strong
+                id="inactiveCategories"
+              >
+                0
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-card category-add-card">
+
+            <button
+              id="addCategoryBtn"
+              class="outline-btn"
+            >
+              + Add Category
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- CATEGORY PANEL -->
+
+        <div class="panel category-panel">
+
+
+          <!-- HEADER -->
+
+          <div class="panel-header">
+
+            <div>
+
+              <span class="panel-eyebrow">
+                COLLECTION
+              </span>
+
+              <h2>
+                All Categories
+              </h2>
+
+            </div>
+
+
+            <input
+              type="search"
+              id="searchInput"
+              class="category-search"
+              placeholder="Search categories..."
+            />
+
+          </div>
+
+
+          <!-- CATEGORY GRID -->
+
+          <div
+            id="categoryGrid"
+            class="category-grid"
+          >
+
+            <div class="loading">
+              Loading categories...
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- ==========================================
+       CATEGORY MODAL
+  ========================================== -->
+
+  <div
+    class="category-modal hidden"
+    id="categoryModal"
+  >
+
+    <div class="category-modal-card">
+
+
+      <!-- MODAL HEADER -->
+
+      <div class="category-modal-header">
+
+        <div>
+
+          <span class="panel-eyebrow">
+            CATEGORY
+          </span>
+
+          <h2 id="modalTitle">
+            Add Category
+          </h2>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="closeModal"
+          class="modal-close"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form id="categoryForm">
+
+
+        <input
+          type="hidden"
+          id="categoryId"
+        />
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label for="categoryName">
+            Category Name
+          </label>
+
+          <input
+            type="text"
+            id="categoryName"
+            placeholder="Sambalpuri Handloom"
+            required
+          />
+
+        </div>
+
+
+        <!-- SLUG -->
+
+        <div class="form-group">
+
+          <label for="categorySlug">
+            Slug
+          </label>
+
+          <input
+            type="text"
+            id="categorySlug"
+            placeholder="sambalpuri-handloom"
+            required
+          />
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="form-group">
+
+          <label for="categoryDescription">
+            Description
+          </label>
+
+          <textarea
+            id="categoryDescription"
+            rows="4"
+            placeholder="Describe this category..."
+          ></textarea>
+
+        </div>
+
+
+        <!-- SORT + ACTIVE -->
+
+        <div class="category-form-row">
+
+
+          <div class="form-group">
+
+            <label for="categorySortOrder">
+              Sort Order
+            </label>
+
+            <input
+              type="number"
+              id="categorySortOrder"
+              value="0"
+              min="0"
+            />
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Status
+            </label>
+
+            <label class="category-toggle">
+
+              <input
+                type="checkbox"
+                id="categoryActive"
+                checked
+              />
+
+              <span>
+                Active
+              </span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <div class="form-group">
+
+          <label for="categoryImage">
+            Category Image
+          </label>
+
+          <input
+            type="file"
+            id="categoryImage"
+            accept="image/*"
+          />
+
+        </div>
+
+
+        <!-- IMAGE PREVIEW -->
+
+        <div
+          id="imagePreview"
+          class="category-image-preview hidden"
+        >
+
+          <img
+            id="previewImage"
+            src=""
+            alt="Category preview"
+          />
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="category-form-actions">
+
+          <button
+            type="button"
+            id="cancelBtn"
+            class="outline-btn"
+          >
+            Cancel
+          </button>
+
+
+          <button
+            type="submit"
+            id="saveBtn"
+            class="primary-btn"
+          >
+            Save Category
+          </button>
+
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- CATEGORY JS -->
+
+  <script src="./js/categories.js"></script>
+
+</body>
+</html>

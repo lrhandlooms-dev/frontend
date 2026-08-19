@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Handloom — Orders</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/admin.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="./css/orders.css"
+  />
+
+</head>
+
+
+<body>
+
+  <div class="admin-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-brand">
+
+        <div class="brand-mark">
+          H
+        </div>
+
+        <div>
+          <h2>HANDLOOM</h2>
+          <span>ADMIN</span>
+        </div>
+
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <p class="nav-label">
+          MAIN
+        </p>
+
+
+        <a
+          href="./index.html"
+          class="nav-item"
+        >
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+
+        <a
+          href="./products.html"
+          class="nav-item"
+        >
+          <span>◈</span>
+          Products
+        </a>
+
+
+        <a
+          href="./categories.html"
+          class="nav-item"
+        >
+          <span>▦</span>
+          Categories
+        </a>
+
+
+        <a
+          href="./inventory.html"
+          class="nav-item"
+        >
+          <span>□</span>
+          Inventory
+        </a>
+
+
+        <p class="nav-label">
+          MANAGEMENT
+        </p>
+
+
+        <a
+          href="./offers.html"
+          class="nav-item"
+        >
+          <span>%</span>
+          Offers
+        </a>
+
+
+        <a
+          href="./catalog.html"
+          class="nav-item"
+        >
+          <span>✦</span>
+          Catalog
+        </a>
+
+
+        <a
+          href="./images.html"
+          class="nav-item"
+        >
+          <span>▧</span>
+          Images
+        </a>
+
+
+        <a
+          href="./enquiries.html"
+          class="nav-item"
+        >
+          <span>✉</span>
+          Enquiries
+        </a>
+
+
+        <a
+          href="./orders.html"
+          class="nav-item active"
+        >
+          <span>▤</span>
+          Orders
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <button
+          id="logoutBtn"
+          class="logout-btn"
+        >
+          <span>↪</span>
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+      <!-- TOPBAR -->
+
+      <header class="topbar">
+
+        <div>
+
+          <p class="eyebrow">
+            MANAGEMENT
+          </p>
+
+          <h1>
+            Orders
+          </h1>
+
+        </div>
+
+
+        <div class="admin-profile">
+
+          <div class="profile-avatar">
+            A
+          </div>
+
+          <div>
+
+            <strong id="adminName">
+              Admin
+            </strong>
+
+            <span id="adminEmail">
+              admin@example.com
+            </span>
+
+          </div>
+
+        </div>
+
+      </header>
+
+
+
+      <!-- ===================================================
+           ORDERS CONTENT
+      ==================================================== -->
+
+      <section class="orders-content">
+
+
+        <!-- TOOLBAR -->
+
+        <div class="orders-toolbar">
+
+
+          <div>
+
+            <p class="orders-count">
+
+              <span id="ordersCount">
+                0
+              </span>
+
+              orders
+
+            </p>
+
+          </div>
+
+
+          <div class="orders-actions">
+
+
+            <div class="search-box">
+
+              <span>
+                ⌕
+              </span>
+
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search orders..."
+              />
+
+            </div>
+
+
+            <select
+              id="paymentFilter"
+            >
+
+              <option value="all">
+                All Payments
+              </option>
+
+              <option value="awaiting">
+                Awaiting
+              </option>
+
+              <option value="paid">
+                Paid
+              </option>
+
+              <option value="rejected">
+                Rejected
+              </option>
+
+            </select>
+
+
+            <select
+              id="statusFilter"
+            >
+
+              <option value="all">
+                All Orders
+              </option>
+
+              <option value="pending">
+                Pending
+              </option>
+
+              <option value="confirmed">
+                Confirmed
+              </option>
+
+              <option value="processing">
+                Processing
+              </option>
+
+              <option value="shipped">
+                Shipped
+              </option>
+
+              <option value="delivered">
+                Delivered
+              </option>
+
+              <option value="cancelled">
+                Cancelled
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ORDERS -->
+
+        <div
+          id="ordersList"
+          class="orders-list"
+        >
+
+          <div class="orders-loading">
+            Loading orders...
+          </div>
+
+        </div>
+
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+
+  <script src="./js/orders.js"></script>
+
+</body>
+
+</html>
