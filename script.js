@@ -610,6 +610,7 @@ function loadCart() {
       .filter(item =>
         item &&
         item.productId &&
+         !String(item.productId).startsWith("legacy-") &&
         Number(item.price) >= 0
       )
       .map(item => ({
