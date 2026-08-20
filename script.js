@@ -703,10 +703,10 @@ function addProductToCart(product) {
 
   const price =
     Number(
-        product.finalPrice ??
-        product.pricing?.finalPrice ??
-        product.price ??
-        0
+      product.finalPrice ??
+      product.pricing?.finalPrice ??
+      product.price ??
+      0
     );
 
 
@@ -1860,31 +1860,30 @@ document.addEventListener(
             ) {
 
               window.addProductToCart({
+                productId: product._id,
+                name: product.name,
 
-                productId:
-                  product._id,
-
-                name:
-                  product.name ||
-                  "Product",
-
-                price:
-                  Number(
-                    product?.pricing?.finalPrice ??
-                    product.price ??
-                    0
-                  ),
-
-                imgUrl:
-                  getProductImage(product),
-
-                quantity:
-                  1,
-
-                stock:
-                  Number(product.stock) ||
+                price: Number(
+                  product.pricing?.finalPrice ??
+                  product.price ??
                   0
+                ),
 
+                finalPrice: Number(
+                  product.pricing?.finalPrice ??
+                  product.price ??
+                  0
+                ),
+
+                originalPrice: Number(
+                  product.pricing?.originalPrice ??
+                  product.price ??
+                  0
+                ),
+
+                imgUrl: getProductImage(product),
+                quantity: 1,
+                stock: Number(product.stock) || 0
               });
 
             } else {
