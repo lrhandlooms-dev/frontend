@@ -2325,3 +2325,10 @@ body {
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
+.loader-logo-image {
+    width: 280px;
+    max-width: 75vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
