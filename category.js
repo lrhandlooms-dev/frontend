@@ -596,11 +596,15 @@
                                         );
 
 
-                                    window.addToCart(
-                                        product.name,
-                                        finalPrice,
-                                        getProductImage(product)
-                                    );
+                                    window.addProductToCart({
+                                        productId: product._id,
+                                        name: product.name,
+                                        price: finalPrice,
+                                        finalPrice: finalPrice,
+                                        imgUrl: getProductImage(product),
+                                        quantity: 1,
+                                        stock: Number(product.stock || 0)
+                                    });
 
                                 }
 
