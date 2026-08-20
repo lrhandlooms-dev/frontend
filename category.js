@@ -52,6 +52,8 @@
             "categoryProductGrid"
         );
 
+        let currentProducts = [];
+
 
     const numberEl =
         document.getElementById(
@@ -324,6 +326,8 @@
                         product?.isActive !== false
                 );
 
+            currentProducts = activeProducts;
+
 
             countEl.textContent =
                 `${activeProducts.length} ${activeProducts.length === 1
@@ -529,9 +533,9 @@
     }
 
 
-    // =========================================================
+    // ============================================================
     // ADD TO BAG
-    // =========================================================
+    // ============================================================
 
     function bindAddButtons() {
 
@@ -546,7 +550,6 @@
                     event => {
 
                         event.preventDefault();
-
                         event.stopPropagation();
 
 
@@ -555,67 +558,88 @@
                                 .categoryAddProduct;
 
 
-                        // Get product from current
-                        // rendered collection.
-
-                        apiGet(
-                            `/products/${productId}`
-                        )
-                            .then(data => {
-
-                                const product =
-                                    data.product ||
-                                    data.data;
+                        // Find the exact product
+                        // already loaded on this page
+                        const product =
+                            currentProducts.find(
+                                item =>
+                                    String(item._id) ===
+                                    String(productId)
+                            );
 
 
-                                if (!product) {
-                                    return;
-                                }
+                        if (!product) {
+
+                            console.error(
+                                "Product not found:",
+                                productId
+                            );
+
+                            return;
+                        }
 
 
-                                if (
-                                    Number(
-                                        product.stock
-                                    ) <= 0
-                                ) {
+                        // Check stock
+                        if (
+                            Number(product.stock) <= 0
+                        ) {
 
-                                    return;
-                                }
+                            return;
+
+                        }
 
 
-                                if (
-                                    typeof window.addProductToCart ===
-                                    "function"
-                                ) {
+                        // IMPORTANT:
+                        // Use the SAME final price
+                        // already used on the category card.
 
-                                    const finalPrice =
-                                        Number(
-                                            product.pricing?.finalPrice ??
-                                            product.price ??
-                                            0
-                                        );
+                        const finalPrice =
+                            Number(
+                                product.pricing?.finalPrice ??
+                                product.price ??
+                                0
+                            );
 
-                                    window.addProductToCart({
-                                        productId: product._id,
-                                        name: product.name,
-                                        price: finalPrice,
-                                        finalPrice: finalPrice,
-                                        imgUrl: getProductImage(product),
-                                        quantity: 1,
-                                        stock: Number(product.stock || 0)
-                                    });
 
-                                }
+                        if (
+                            typeof window.addProductToCart !==
+                            "function"
+                        ) {
 
-                            })
-                            .catch(error => {
+                            console.error(
+                                "addProductToCart() not found."
+                            );
 
-                                console.error(
-                                    "Add to bag error:",
-                                    error
-                                );
+                            return;
+                        }
 
-                            });
+
+                        window.addProductToCart({
+
+                            productId:
+                                product._id,
+
+                            name:
+                                product.name,
+
+                            price:
+                                finalPrice,
+
+                            finalPrice:
+                                finalPrice,
+
+                            imgUrl:
+                                getProductImage(product),
+
+                            quantity:
+                                1,
+
+                            stock:
+                                Number(
+                                    product.stock || 0
+                                )
+
+                        });
 
                     }
                 );
