@@ -610,7 +610,7 @@ function loadCart() {
       .filter(item =>
         item &&
         item.productId &&
-         !String(item.productId).startsWith("legacy-") &&
+        !String(item.productId).startsWith("legacy-") &&
         Number(item.price) >= 0
       )
       .map(item => ({
@@ -1840,7 +1840,7 @@ document.addEventListener(
 
 
             if (
-              typeof window.addToCart ===
+              typeof window.addProductToCart ===
               "function"
             ) {
 
@@ -1874,7 +1874,7 @@ document.addEventListener(
             } else {
 
               console.error(
-                "addToCart function not found."
+                "addProductToCart function not found."
               );
             }
 
@@ -2019,6 +2019,15 @@ document.addEventListener(
   document.addEventListener(
     "DOMContentLoaded",
     async () => {
+
+      // Category page has its own category.js
+      if (
+        document.getElementById(
+          "categoryProductGrid"
+        )
+      ) {
+        return;
+      }
 
       await Promise.all([
         loadCategories(),
