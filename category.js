@@ -584,7 +584,7 @@
 
 
                                 if (
-                                    typeof window.addToCart ===
+                                    typeof window.addProductToCart ===
                                     "function"
                                 ) {
 
@@ -594,7 +594,6 @@
                                             product.price ??
                                             0
                                         );
-
 
                                     window.addProductToCart({
                                         productId: product._id,
