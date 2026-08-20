@@ -818,62 +818,46 @@ function addProductToCart(product) {
 
 
 // ============================================================
-// OLD addToCart SUPPORT
+// LEGACY addToCart SUPPORT
 // ============================================================
 
-function addToCart(
-  name,
-  price,
-  imgUrl
-) {
-
-  /*
-   * This keeps your existing
-   * homepage buttons working.
-   *
-   * Product-detail page uses
-   * addProductToCart().
-   */
+function addToCart(name, price, imgUrl) {
 
   console.warn(
     "Legacy addToCart() used. Product ID is recommended."
   );
-
 
   const legacyId =
     `legacy-${Date.now()}-${Math.random()
       .toString(36)
       .slice(2, 8)}`;
 
+  // IMPORTANT:
+  // category.js already sends the FINAL price here.
+  // Do NOT replace it with product.price.
+  const finalPrice = Number(price) || 0;
 
   addProductToCart({
 
-    productId:
-      legacyId,
+    productId: legacyId,
 
-    name,
+    name: name,
 
-    price,
+    price: finalPrice,
 
-    imgUrl,
+    finalPrice: finalPrice,
+
+    imgUrl: imgUrl,
 
     quantity: 1,
 
     stock: 999999
 
   });
-
 }
 
-
-window.addToCart =
-  addToCart;
-
-
-window.addProductToCart =
-  addProductToCart;
-
-
+window.addToCart = addToCart;
+window.addProductToCart = addProductToCart;
 // ============================================================
 // REMOVE PRODUCT
 // ============================================================
