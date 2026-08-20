@@ -595,16 +595,11 @@
                                             0
                                         );
 
+
                                     window.addToCart(
-
                                         product.name,
-
                                         finalPrice,
-
-                                        getProductImage(
-                                            product
-                                        )
-
+                                        getProductImage(product)
                                     );
 
                                 }
