@@ -326,10 +326,9 @@
 
 
             countEl.textContent =
-                `${activeProducts.length} ${
-                    activeProducts.length === 1
-                        ? "PIECE"
-                        : "PIECES"
+                `${activeProducts.length} ${activeProducts.length === 1
+                    ? "PIECE"
+                    : "PIECES"
                 }`;
 
 
@@ -394,47 +393,47 @@
 
     function renderProducts(products) {
 
-    grid.innerHTML =
-        products
-            .map(product => {
+        grid.innerHTML =
+            products
+                .map(product => {
 
-                const image =
-                    getProductImage(product);
+                    const image =
+                        getProductImage(product);
 
-                const stock =
-                    Number(product.stock) || 0;
+                    const stock =
+                        Number(product.stock) || 0;
 
-                const outOfStock =
-                    stock <= 0;
+                    const outOfStock =
+                        stock <= 0;
 
-                const originalPrice =
-                    Number(product.price) || 0;
+                    const originalPrice =
+                        Number(product.price) || 0;
 
-                const finalPrice =
-                    Number(
-                        product.pricing?.finalPrice ??
-                        originalPrice
-                    );
-
-                const hasDiscount =
-                    finalPrice < originalPrice;
-
-                let discountPercentage = 0;
-
-                if (hasDiscount && originalPrice > 0) {
-                    discountPercentage =
-                        Math.round(
-                            ((originalPrice - finalPrice) /
-                                originalPrice) * 100
+                    const finalPrice =
+                        Number(
+                            product.pricing?.finalPrice ??
+                            originalPrice
                         );
-                }
 
-                return `
+                    const hasDiscount =
+                        finalPrice < originalPrice;
+
+                    let discountPercentage = 0;
+
+                    if (hasDiscount && originalPrice > 0) {
+                        discountPercentage =
+                            Math.round(
+                                ((originalPrice - finalPrice) /
+                                    originalPrice) * 100
+                            );
+                    }
+
+                    return `
                     <article
                         class="product-card"
                         data-product-id="${escapeHTML(
-                            product._id || ""
-                        )}"
+                        product._id || ""
+                    )}"
                     >
 
                         <div class="img-wrapper">
@@ -443,39 +442,36 @@
                                 class="product-img"
                                 src="${escapeHTML(image)}"
                                 alt="${escapeHTML(
-                                    product.name ||
-                                    "Handloom Product"
-                                )}"
+                        product.name ||
+                        "Handloom Product"
+                    )}"
                                 loading="lazy"
                             >
 
-                            ${
-                                product.featured
-                                    ? `
+                            ${product.featured
+                            ? `
                                         <span class="product-badge">
                                             FEATURED
                                         </span>
                                     `
-                                    : ""
-                            }
+                            : ""
+                        }
 
                             <button
                                 type="button"
                                 class="quick-add"
                                 data-category-add-product="${escapeHTML(
-                                    product._id || ""
-                                )}"
-                                ${
-                                    outOfStock
-                                        ? "disabled"
-                                        : ""
-                                }
+                            product._id || ""
+                        )}"
+                                ${outOfStock
+                            ? "disabled"
+                            : ""
+                        }
                             >
-                                ${
-                                    outOfStock
-                                        ? "SOLD OUT"
-                                        : "ADD TO BAG"
-                                }
+                                ${outOfStock
+                            ? "SOLD OUT"
+                            : "ADD TO BAG"
+                        }
                             </button>
 
                         </div>
@@ -484,40 +480,39 @@
 
                             <h3>
                                 ${escapeHTML(
-                                    product.name ||
-                                    "Untitled Product"
-                                )}
+                            product.name ||
+                            "Untitled Product"
+                        )}
                             </h3>
 
                             <div class="price">
 
-                                ${
-                                    hasDiscount
-                                        ? `
+                                ${hasDiscount
+                            ? `
                                             <span class="original-price">
                                                 ${formatPrice(
-                                                    originalPrice
-                                                )}
+                                originalPrice
+                            )}
                                             </span>
 
                                             <span class="sale-price">
                                                 ${formatPrice(
-                                                    finalPrice
-                                                )}
+                                finalPrice
+                            )}
                                             </span>
 
                                             <span class="offer-label">
                                                 ${discountPercentage}% OFF
                                             </span>
                                         `
-                                        : `
+                            : `
                                             <span class="regular-price">
                                                 ${formatPrice(
-                                                    originalPrice
-                                                )}
+                                originalPrice
+                            )}
                                             </span>
                                         `
-                                }
+                        }
 
                             </div>
 
@@ -526,12 +521,12 @@
                     </article>
                 `;
 
-            })
-            .join("");
+                })
+                .join("");
 
-    bindAddButtons();
+        bindAddButtons();
 
-}
+    }
 
 
     // =========================================================
@@ -566,58 +561,63 @@
                         apiGet(
                             `/products/${productId}`
                         )
-                        .then(data => {
+                            .then(data => {
 
-                            const product =
-                                data.product ||
-                                data.data;
-
-
-                            if (!product) {
-                                return;
-                            }
+                                const product =
+                                    data.product ||
+                                    data.data;
 
 
-                            if (
-                                Number(
-                                    product.stock
-                                ) <= 0
-                            ) {
-
-                                return;
-                            }
+                                if (!product) {
+                                    return;
+                                }
 
 
-                            if (
-                                typeof window.addToCart ===
-                                "function"
-                            ) {
-
-                                window.addToCart(
-
-                                    product.name,
-
+                                if (
                                     Number(
-                                        product.price
-                                    ) || 0,
+                                        product.stock
+                                    ) <= 0
+                                ) {
 
-                                    getProductImage(
-                                        product
-                                    )
+                                    return;
+                                }
 
+
+                                if (
+                                    typeof window.addToCart ===
+                                    "function"
+                                ) {
+
+                                    const finalPrice =
+                                        Number(
+                                            product.pricing?.finalPrice ??
+                                            product.price ??
+                                            0
+                                        );
+
+                                    window.addToCart(
+
+                                        product.name,
+
+                                        finalPrice,
+
+                                        getProductImage(
+                                            product
+                                        )
+
+                                    );
+
+                                }
+
+                            })
+                            .catch(error => {
+
+                                console.error(
+                                    "Add to bag error:",
+                                    error
                                 );
 
-                            }
-
-                        })
-                        .catch(error => {
-
-                            console.error(
-                                "Add to bag error:",
-                                error
-                            );
-
-                        });
+                            });
 
                     }
                 );

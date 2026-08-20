@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================
 
   const checkoutBtn =
-    document.getElementById("checkout-btn");
+    document.querySelector(".checkout-btn");
 
   if (checkoutBtn) {
 
