@@ -1535,7 +1535,7 @@ document.addEventListener(
 
       const data =
         await apiGet(
-          "/products"
+          "/products?featured=true&limit=6"
         );
 
 
