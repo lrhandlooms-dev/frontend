@@ -702,7 +702,12 @@ function addProductToCart(product) {
 
 
   const price =
-    Number(product.price) || 0;
+    Number(
+        product.finalPrice ??
+        product.pricing?.finalPrice ??
+        product.price ??
+        0
+    );
 
 
   const quantity =
