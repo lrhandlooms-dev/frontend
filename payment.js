@@ -21,7 +21,7 @@ const API_BASE =
 // ============================================================
 
 const UPI_ID =
-    "6370392365@yespop";
+    "patra.ramakanta98-2@oksbi";
 
 const UPI_NAME =
     "LR HANDLOOMS";
